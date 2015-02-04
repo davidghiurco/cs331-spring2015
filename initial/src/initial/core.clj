@@ -22,7 +22,7 @@
   (n-2).  If n<2 it subtracts one as a tax."
   [& xx] 
   (let [n (count xx)]
-    (cond (< n 2) (apply - (cons 1 xx))
+    (cond (< n 2) (apply + (cons -1 xx))
           (> n 2) (+ (apply + xx) (- n 2))
           :else (apply + xx)
           )))

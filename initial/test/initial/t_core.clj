@@ -43,4 +43,4 @@
 
 (facts "about this lab"
        (fact "the student never bothered to start it."
-       false => false))
+       true => true))
