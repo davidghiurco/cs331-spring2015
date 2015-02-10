@@ -1,0 +1,182 @@
+Lab report for Initial Lab - dghiurco
+Timestamp: 2015-02-09 17:42:46
+
+|  :scenario |                                                 :title |                              :result | :score |
+|------------+--------------------------------------------------------+--------------------------------------+--------|
+|    working |                  Test student code vs instructor tests |                                 Pass |     45 |
+| qualifying |                  Test student tests vs instructor code |                                 Pass |      5 |
+|    broke-1 |                         Plus only takes two arguments. | Pass: student tests detected errors. |      5 |
+|    broke-2 |                     Plus only looks at first argument. | Pass: student tests detected errors. |      5 |
+|    broke-3 |                            Socialist plus doesn't tax. | Pass: student tests detected errors. |      5 |
+|    broke-4 |                      Socialist plus doesn't subsidize. | Pass: student tests detected errors. |      5 |
+|    broke-5 |                           Capitalist plus doesn't tax. | Pass: student tests detected errors. |      5 |
+|    broke-6 |                     Capitalist plus doesn't subsidize. | Pass: student tests detected errors. |      5 |
+|    broke-7 |        Communist plus returns something other than 10. | Pass: student tests detected errors. |      5 |
+|    broke-8 | Political extreemist plus adds instead of multiplying. | Pass: student tests detected errors. |      5 |
+|    broke-9 |    Political extreemist plus only takes two arguments. | Pass: student tests detected errors. |      5 |
+|   broke-10 | Political extreemist plus only returns first argument. | Pass: student tests detected errors. |      5 |
+|      total |                                            Total Score |                                      |    100 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+All checks (28) succeeded.
+
+
+** Details for Test student tests vs instructor code
+
+All checks (15) succeeded.
+
+
+** Details for Plus only takes two arguments.
+
+
+FAIL "about plus - it adds numbers." at (t_core.clj:7)
+    Expected: 0
+      Actual: clojure.lang.ArityException: Wrong number of args (0) passed to: core$plus
+              initial.t_core$eval8345$fn__8346$fn__8347$fn__8348$fn__8349$fn__8350.invoke(t_core.clj:7)
+              initial.t_core$eval8345$fn__8346$fn__8347$fn__8348$fn__8349.invoke(t_core.clj:5)
+              initial.t_core$eval8345$fn__8346$fn__8347$fn__8348.invoke(t_core.clj:5)
+              initial.t_core$eval8345$fn__8346$fn__8347.invoke(t_core.clj:5)
+              initial.t_core$eval8345$fn__8346.invoke(t_core.clj:5)
+              initial.t_core$eval8345.invoke(t_core.clj:5)
+
+FAIL "about plus - it adds numbers." at (t_core.clj:8)
+    Expected: 10
+      Actual: clojure.lang.ArityException: Wrong number of args (1) passed to: core$plus
+              initial.t_core$eval8345$fn__8346$fn__8347$fn__8348$fn__8349$fn__8352.invoke(t_core.clj:8)
+              initial.t_core$eval8345$fn__8346$fn__8347$fn__8348$fn__8349.invoke(t_core.clj:5)
+              initial.t_core$eval8345$fn__8346$fn__8347$fn__8348.invoke(t_core.clj:5)
+              initial.t_core$eval8345$fn__8346$fn__8347.invoke(t_core.clj:5)
+              initial.t_core$eval8345$fn__8346.invoke(t_core.clj:5)
+              initial.t_core$eval8345.invoke(t_core.clj:5)
+
+FAIL "about plus - it adds numbers." at (t_core.clj:10)
+    Expected: 150
+      Actual: clojure.lang.ArityException: Wrong number of args (5) passed to: core$plus
+              initial.t_core$eval8345$fn__8346$fn__8347$fn__8348$fn__8349$fn__8356.invoke(t_core.clj:10)
+              initial.t_core$eval8345$fn__8346$fn__8347$fn__8348$fn__8349.invoke(t_core.clj:5)
+              initial.t_core$eval8345$fn__8346$fn__8347$fn__8348.invoke(t_core.clj:5)
+              initial.t_core$eval8345$fn__8346$fn__8347.invoke(t_core.clj:5)
+              initial.t_core$eval8345$fn__8346.invoke(t_core.clj:5)
+              initial.t_core$eval8345.invoke(t_core.clj:5)
+FAILURE: 3 checks failed.  (But 12 succeeded.)
+Subprocess failed
+
+
+** Details for Plus only looks at first argument.
+
+
+FAIL "about plus - it adds numbers." at (t_core.clj:7)
+    Expected: 0
+      Actual: nil
+
+FAIL "about plus - it adds numbers." at (t_core.clj:9)
+    Expected: 30
+      Actual: 10
+
+FAIL "about plus - it adds numbers." at (t_core.clj:10)
+    Expected: 150
+      Actual: 10
+FAILURE: 3 checks failed.  (But 12 succeeded.)
+Subprocess failed
+
+
+** Details for Socialist plus doesn't tax.
+
+
+FAIL "about socialist plus - it subsidized fewer than two elements" at (t_core.clj:14)
+    Expected: 11
+      Actual: 10
+
+FAIL "about socialist plus - it taxes the result if there are more than 2 elements." at (t_core.clj:18)
+    Expected: 59
+      Actual: 60
+
+FAIL "about socialist plus - it taxes the result if there are more than 2 elements." at (t_core.clj:19)
+    Expected: 58
+      Actual: 60
+FAILURE: 3 checks failed.  (But 12 succeeded.)
+Subprocess failed
+
+
+** Details for Socialist plus doesn't subsidize.
+
+
+FAIL "about socialist plus - it subsidized fewer than two elements" at (t_core.clj:14)
+    Expected: 11
+      Actual: 10
+FAILURE: 1 check failed.  (But 14 succeeded.)
+Subprocess failed
+
+
+** Details for Capitalist plus doesn't tax.
+
+
+FAIL "about capitalist plus - it taxes fewer than two elements" at (t_core.clj:24)
+    Expected: 9
+      Actual: 10
+FAILURE: 1 check failed.  (But 14 succeeded.)
+Subprocess failed
+
+
+** Details for Capitalist plus doesn't subsidize.
+
+
+FAIL "about capitalist plus - it subsidizes the result if there are more than 2 elements." at (t_core.clj:29)
+    Expected: 61
+      Actual: 60
+
+FAIL "about capitalist plus - it subsidizes the result if there are more than 2 elements." at (t_core.clj:30)
+    Expected: 62
+      Actual: 60
+FAILURE: 2 checks failed.  (But 13 succeeded.)
+Subprocess failed
+
+
+** Details for Communist plus returns something other than 10.
+
+
+FAIL "about communist plus - it only returns 10." at (t_core.clj:35)
+    Expected: 10
+      Actual: 53
+FAILURE: 1 check failed.  (But 14 succeeded.)
+Subprocess failed
+
+
+** Details for Political extreemist plus adds instead of multiplying.
+
+
+FAIL "about political extreemist plus - it multiplies instead of adds." at (t_core.clj:40)
+    Expected: 24
+      Actual: 10
+FAILURE: 1 check failed.  (But 14 succeeded.)
+Subprocess failed
+
+
+** Details for Political extreemist plus only takes two arguments.
+
+
+FAIL "about political extreemist plus - it multiplies instead of adds." at (t_core.clj:40)
+    Expected: 24
+      Actual: clojure.lang.ArityException: Wrong number of args (4) passed to: core$political-extreemist-plus
+              initial.t_core$eval8427$fn__8428$fn__8429$fn__8430$fn__8431$fn__8432.invoke(t_core.clj:40)
+              initial.t_core$eval8427$fn__8428$fn__8429$fn__8430$fn__8431.invoke(t_core.clj:38)
+              initial.t_core$eval8427$fn__8428$fn__8429$fn__8430.invoke(t_core.clj:38)
+              initial.t_core$eval8427$fn__8428$fn__8429.invoke(t_core.clj:38)
+              initial.t_core$eval8427$fn__8428.invoke(t_core.clj:38)
+              initial.t_core$eval8427.invoke(t_core.clj:38)
+FAILURE: 1 check failed.  (But 14 succeeded.)
+Subprocess failed
+
+
+** Details for Political extreemist plus only returns first argument.
+
+
+FAIL "about political extreemist plus - it multiplies instead of adds." at (t_core.clj:40)
+    Expected: 24
+      Actual: 1
+FAILURE: 1 check failed.  (But 14 succeeded.)
+Subprocess failed
