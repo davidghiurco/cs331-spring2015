@@ -54,7 +54,7 @@
   (cond (nil? xx)   '() 
         :else       (cons (:car xx) (cons-to-list (:cdr xx)))))
 
-;; The `insert-sorted` function assumes that the elements are orderable
+;; The `insert-ordered` function assumes that the elements are orderable
 ;; and puts the element in the spot that will preserve the ordering.
 
 ;; Test broke-4 will use `(Cons. elt (:cdr xx))` in the third case.
@@ -81,7 +81,10 @@ This is used by `insert-ordered`."
 
 (defn delete
   "Delete `elt` from `xx`."
-  [elt xx])
+  [elt xx]
+  (cond (= (:car xx) elt) (List. (Cons  (:car :cdr xx) (:cdr :cdr xx)) (- size 1))
+        :else (delete (elt :cdr xx))
+        ))
 
 ;; The `delete-all` function will delete all copies of elt from xx.
 
@@ -91,4 +94,11 @@ This is used by `insert-ordered`."
 
 (defn delete-all
   "Delete all occurrences of `elt` from `xx`."
-  [elt xx])
+  [elt xx]
+  
+  )
+
+(defn counting [xx c]
+  (cond ((= nil (:cdr xx)) c)
+        :else (counting (:cdr xx) (+ c 1) )))
+
