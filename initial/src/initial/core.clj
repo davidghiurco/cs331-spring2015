@@ -14,7 +14,7 @@
           :else (apply + xx)
     )))
 
-; (socialist-plus 10 20 30) => 59
+; (socialist-plus 10 20 30)  => 59
 ; (socialist-plus 10 20 20 10) => 58
 
 (defn capitalist-plus
