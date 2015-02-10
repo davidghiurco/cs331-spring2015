@@ -15,7 +15,7 @@
     )))
 
 ; (socialist-plus 10 20 30)  => 59
-; (socialist-plus 10 20 20 10) => 58
+; (socialist-plus 10 20 20 10)  => 58
 
 (defn capitalist-plus
   "Adds up numbers [x_1, x_2, ... x_n].  If n>2, it subsidizes the result by adding
