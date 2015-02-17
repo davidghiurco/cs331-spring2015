@@ -1,0 +1,187 @@
+Lab report for Linked List Lab - dghiurco
+Timestamp: 2015-02-17 17:18:48
+
+|  :scenario |                                :title |                   :result | :score |
+|------------+---------------------------------------+---------------------------+--------|
+|    working | Test student code vs instructor tests |                      Fail |     25 |
+| qualifying | Test student tests vs instructor code |                      Fail |      4 |
+| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
+|      total |                           Total Score |                           |     29 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+
+FAIL "about `delete` - it removes elements properly." at (t_core.clj:58)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}}::linked_list_lab.core.Cons
+      Actual: nil
+
+FAIL "about `delete` - it removes elements properly." at (t_core.clj:59)
+    Expected: {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: nil
+
+FAIL "about `delete` - it removes elements properly." at (t_core.clj:60)
+    Expected: {:car 1, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: nil
+
+FAIL "about `delete` - it removes elements properly." at (t_core.clj:61)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: nil
+
+FAIL "about `delete` - it removes elements properly." at (t_core.clj:62)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}}::linked_list_lab.core.Cons
+      Actual: nil
+
+FAIL "about `delete` - it handles size correctly." at (t_core.clj:64)
+    Expected: 5
+      Actual: nil
+
+FAIL "about `delete` - it handles size correctly." at (t_core.clj:65)
+    Expected: 4
+      Actual: nil
+
+FAIL "about `delete` - it handles size correctly." at (t_core.clj:66)
+    Expected: 4
+      Actual: nil
+
+FAIL "about `delete` - it handles size correctly." at (t_core.clj:67)
+    Expected: 4
+      Actual: nil
+
+FAIL "about `delete` - it handles size correctly." at (t_core.clj:68)
+    Expected: 5
+      Actual: nil
+
+FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:74)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}}::linked_list_lab.core.Cons
+      Actual: nil
+
+FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:75)
+    Expected: {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr }}}::linked_list_lab.core.Cons
+      Actual: nil
+
+FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:76)
+    Expected: {:car 1, :cdr {:car 8, :cdr {:car 1, :cdr }}}::linked_list_lab.core.Cons
+      Actual: nil
+
+FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:77)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: nil
+
+FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:78)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}}::linked_list_lab.core.Cons
+      Actual: nil
+
+FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:80)
+    Expected: 5
+      Actual: nil
+
+FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:81)
+    Expected: 3
+      Actual: nil
+
+FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:82)
+    Expected: 3
+      Actual: nil
+
+FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:83)
+    Expected: 4
+      Actual: nil
+
+FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:84)
+    Expected: 5
+      Actual: nil
+FAILURE: 20 checks failed.  (But 25 succeeded.)
+Subprocess failed
+
+
+** Details for Test student tests vs instructor code
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+
+FAIL "about this lab - the student never started.  Fix this `facts` from." at (t_core.clj:61)
+    Expected: 42
+      Actual: 30
+FAILURE: 1 check failed.  (But 25 succeeded.)
+Subprocess failed
