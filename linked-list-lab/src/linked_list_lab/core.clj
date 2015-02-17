@@ -1,3 +1,4 @@
+
 (ns linked_list_lab.core)
 
 ;; We start with a defrecord.  In traditional lisps, the
@@ -38,7 +39,7 @@
 (defn insert-front 
   "Insert an element at the beginning of the list."
   [{:keys [data size]} new-elt]
-  (List. (Cons. new-elt data) (+ 1 size))) 
+  (List. (Cons. new-elt data) (inc size))) 
 
 ;; Here are some utility functions that convert Clojure lists to
 ;; our Cons. record, and vice-versa.  The broke versions will not
@@ -82,9 +83,9 @@ This is used by `insert-ordered`."
 (defn delete
   "Delete `elt` from `xx`."
   [elt xx]
-  (cond (= (:car xx) elt) (List. (Cons  (:car :cdr xx) (:cdr :cdr xx)) (- size 1))
-        :else (delete (elt :cdr xx))
-        ))
+  (cond (nil? (:cdr xx)) nil 
+        (= (:car xx) elt) (Cons.  (:car (:cdr xx)) (:cdr (:cdr xx)))
+        :else (List. (Cons. (:car xx) (delete elt (:cdr xx)))  (inc (:size xx)))))
 
 ;; The `delete-all` function will delete all copies of elt from xx.
 
@@ -99,6 +100,6 @@ This is used by `insert-ordered`."
   )
 
 (defn counting [xx c]
-  (cond ((= nil (:cdr xx)) c)
+  (if ((= nil (:cdr xx)) c)
         :else (counting (:cdr xx) (+ c 1) )))
 
