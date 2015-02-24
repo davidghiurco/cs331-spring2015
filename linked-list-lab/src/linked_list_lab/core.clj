@@ -15,7 +15,7 @@
 ;; that.  Here we have a `List` record that keeps a pointer to the list
 ;; along with the size.
 
-(defrecord List [data size])
+(defrecord List [data size]) 
 
 ;; The `make-list` function just creates an empty list.
 
@@ -39,10 +39,10 @@
 (defn insert-front 
   "Insert an element at the beginning of the list."
   [{:keys [data size]} new-elt]
-  (List. (Cons. new-elt data) (inc size))) 
+  (List. (Cons. new-elt data) (+ 1 size))) 
 
 ;; Here are some utility functions that convert Clojure lists to
-;; our Cons. record, and vice-versa.  The broke versions will not
+;; our Cons. record, and vice-versao.  The broke versions will not
 ;; mess with these.
 
 (defn list-to-cons
@@ -74,18 +74,25 @@ This is used by `insert-ordered`."
   [{:keys [data size]} new-elt]
   (List. (insert-ordered-cons new-elt data) (+ size 1)))
 
-;; The `delete` function will delete one element from the list.
+(defn delete_h [elt xx])
 
+;; The `delete` function will delete one element from the list.
 ;; Test broke-6 will truncate the list past the deletion point.
 ;; Test broke-7 will forget to decrement the size.
 ;; Test broke-8 will always decrement the size, even if the element is not found.
+ 
+ (defn delete "Delete element 'elt' from 'xx'"
+  [elt {:keys [data size]}]
+  (let [y (delete_h elt data)]
+  (cond (.equals data y) (List. data size)
+  :else (List. y (- size 1)))))
 
-(defn delete
-  "Delete `elt` from `xx`."
+(defn delete_h
   [elt xx]
-  (cond (nil? (:cdr xx)) nil 
-        (= (:car xx) elt) (Cons.  (:car (:cdr xx)) (:cdr (:cdr xx)))
-        :else (List. (Cons. (:car xx) (delete elt (:cdr xx)))  (inc (:size xx)))))
+  (cond (nil? xx) nil
+        (= elt (:car xx)) (:cdr xx)
+        :else (Cons. (:car xx) (delete_h elt (:cdr xx)))))
+
 
 ;; The `delete-all` function will delete all copies of elt from xx.
 
@@ -93,13 +100,22 @@ This is used by `insert-ordered`."
 ;; Test broke-10 will decrement the count instead of properly subtracting the
 ;;      number of deletions.
 
-(defn delete-all
-  "Delete all occurrences of `elt` from `xx`."
-  [elt xx]
-  
-  )
 
-(defn counting [xx c]
-  (if ((= nil (:cdr xx)) c)
-        :else (counting (:cdr xx) (+ c 1) )))
+(declare dh)
+
+(defn dh
+  [elt xx]
+  (cond (nil? xx) nil 
+  (= elt (:car xx)) (dh elt (:cdr xx))    ;; skips the current element  
+  :else (Cons. (:car xx) (dh elt (:cdr xx))))) ;; builds the cons chain recursively
+ 
+
+(defn delete-all
+   "Deletes all occurances of elt from xx"
+  ([elt xx]
+  (let [y (dh elt (:data xx))]
+  (cond (.equals (:data xx) y) xx
+  :else (List. y (:size xx))))))
+
+
 
