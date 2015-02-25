@@ -1,12 +1,21 @@
 Lab report for Linked List Lab - dghiurco
-Timestamp: 2015-02-17 17:18:48
+Timestamp: 2015-02-24 20:51:10
 
-|  :scenario |                                :title |                   :result | :score |
-|------------+---------------------------------------+---------------------------+--------|
-|    working | Test student code vs instructor tests |                      Fail |     25 |
-| qualifying | Test student tests vs instructor code |                      Fail |      4 |
-| qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     29 |
+|  :scenario |                                    :title | :result | :score |
+|------------+-------------------------------------------+---------+--------|
+|    working |     Test student code vs instructor tests |    Fail |     42 |
+| qualifying |     Test student tests vs instructor code |         |        |
+|    broke-1 |            Insert doesn't increment size. |         |        |
+|    broke-2 |                    Insert doesn't insert. |         |        |
+|    broke-3 |                    Insert truncates list. |         |        |
+|    broke-4 |                    Sorted insert deletes. |         |        |
+|    broke-5 |             Sorted insert truncates list. |         |        |
+|    broke-6 |                    Delete truncates list. |         |        |
+|    broke-7 |            Delete doesn't decrement size. |         |        |
+|    broke-8 |            Delete always decrements size. |         |        |
+|    broke-9 |              Delete-all only deletes one. |         |        |
+|   broke-10 | Delete all decrements count in all cases. |         |        |
+|      total |                               Total Score |         |     42 |
 
 Details:
 
@@ -54,86 +63,18 @@ WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.p
 WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
 WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
 
-FAIL "about `delete` - it removes elements properly." at (t_core.clj:58)
-    Expected: {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}}::linked_list_lab.core.Cons
-      Actual: nil
-
-FAIL "about `delete` - it removes elements properly." at (t_core.clj:59)
-    Expected: {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
-      Actual: nil
-
-FAIL "about `delete` - it removes elements properly." at (t_core.clj:60)
-    Expected: {:car 1, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
-      Actual: nil
-
-FAIL "about `delete` - it removes elements properly." at (t_core.clj:61)
-    Expected: {:car 1, :cdr {:car 5, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
-      Actual: nil
-
-FAIL "about `delete` - it removes elements properly." at (t_core.clj:62)
-    Expected: {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}}::linked_list_lab.core.Cons
-      Actual: nil
-
-FAIL "about `delete` - it handles size correctly." at (t_core.clj:64)
-    Expected: 5
-      Actual: nil
-
-FAIL "about `delete` - it handles size correctly." at (t_core.clj:65)
-    Expected: 4
-      Actual: nil
-
-FAIL "about `delete` - it handles size correctly." at (t_core.clj:66)
-    Expected: 4
-      Actual: nil
-
-FAIL "about `delete` - it handles size correctly." at (t_core.clj:67)
-    Expected: 4
-      Actual: nil
-
-FAIL "about `delete` - it handles size correctly." at (t_core.clj:68)
-    Expected: 5
-      Actual: nil
-
-FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:74)
-    Expected: {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}}::linked_list_lab.core.Cons
-      Actual: nil
-
-FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:75)
-    Expected: {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr }}}::linked_list_lab.core.Cons
-      Actual: nil
-
-FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:76)
-    Expected: {:car 1, :cdr {:car 8, :cdr {:car 1, :cdr }}}::linked_list_lab.core.Cons
-      Actual: nil
-
-FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:77)
-    Expected: {:car 1, :cdr {:car 5, :cdr {:car 5, :cdr {:car 1, :cdr }}}}::linked_list_lab.core.Cons
-      Actual: nil
-
-FAIL "about `delete-all` - it removes elements properly." at (t_core.clj:78)
-    Expected: {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr {:car 5, :cdr {:car 1, :cdr }}}}}::linked_list_lab.core.Cons
-      Actual: nil
-
-FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:80)
-    Expected: 5
-      Actual: nil
-
 FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:81)
     Expected: 3
-      Actual: nil
+      Actual: 5
 
 FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:82)
     Expected: 3
-      Actual: nil
+      Actual: 5
 
 FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:83)
     Expected: 4
-      Actual: nil
-
-FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:84)
-    Expected: 5
-      Actual: nil
-FAILURE: 20 checks failed.  (But 25 succeeded.)
+      Actual: 5
+FAILURE: 3 checks failed.  (But 42 succeeded.)
 Subprocess failed
 
 
@@ -179,9 +120,1214 @@ WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.d
 WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
 WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
 WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init7418204088805647015.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
+Subprocess failed
 
-FAIL "about this lab - the student never started.  Fix this `facts` from." at (t_core.clj:61)
-    Expected: 42
-      Actual: 30
-FAILURE: 1 check failed.  (But 25 succeeded.)
+
+** Details for Insert doesn't increment size.
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+
+FAIL "about `insert-front` - it increments the size properly." at (t_core.clj:24)
+    Expected: 1
+      Actual: 0
+
+FAIL "about `insert-front` - it increments the size properly." at (t_core.clj:25)
+    Expected: 2
+      Actual: 0
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init66557333281607504.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
+Subprocess failed
+
+
+** Details for Insert doesn't insert.
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+
+FAIL "about `insert-front` - it puts the elements in the correct order." at (t_core.clj:27)
+    Expected: 10
+      Actual: nil
+
+FAIL "about `insert-front` - it puts the elements in the correct order." at (t_core.clj:29)
+    Expected: 20
+      Actual: nil
+
+FAIL "about `insert-front` - it puts the elements in the correct order." at (t_core.clj:30)
+    Expected: 10
+      Actual: nil
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init8903178025200039400.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
+Subprocess failed
+
+
+** Details for Insert truncates list.
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+
+FAIL "about `insert-front` - it puts the elements in the correct order." at (t_core.clj:30)
+    Expected: 10
+      Actual: nil
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init3088658448360572831.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
+Subprocess failed
+
+
+** Details for Sorted insert deletes.
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+
+FAIL "about `insert-ordered` - it places elements properly." at (t_core.clj:51)
+    Expected: {:car 0, :cdr {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: {:car 0, :cdr {:car 5, :cdr {:car 8, :cdr }}}::linked_list_lab.core.Cons
+
+FAIL "about `insert-ordered` - it places elements properly." at (t_core.clj:52)
+    Expected: {:car 1, :cdr {:car 2, :cdr {:car 5, :cdr {:car 8, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: {:car 1, :cdr {:car 2, :cdr {:car 8, :cdr }}}::linked_list_lab.core.Cons
+
+FAIL "about `insert-ordered` - it places elements properly." at (t_core.clj:53)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 7, :cdr {:car 8, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: {:car 1, :cdr {:car 5, :cdr {:car 7, :cdr }}}::linked_list_lab.core.Cons
+
+FAIL "about `insert-ordered` - it places elements properly." at (t_core.clj:55)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 5, :cdr {:car 8, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr }}}::linked_list_lab.core.Cons
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init3863954048045812137.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
+Subprocess failed
+
+
+** Details for Sorted insert truncates list.
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+
+FAIL "about `insert-ordered` - it places elements properly." at (t_core.clj:52)
+    Expected: {:car 1, :cdr {:car 2, :cdr {:car 5, :cdr {:car 8, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: {:car 1, :cdr }::linked_list_lab.core.Cons
+
+FAIL "about `insert-ordered` - it places elements properly." at (t_core.clj:53)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 7, :cdr {:car 8, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: {:car 1, :cdr }::linked_list_lab.core.Cons
+
+FAIL "about `insert-ordered` - it places elements properly." at (t_core.clj:54)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 8, :cdr {:car 9, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: {:car 1, :cdr }::linked_list_lab.core.Cons
+
+FAIL "about `insert-ordered` - it places elements properly." at (t_core.clj:55)
+    Expected: {:car 1, :cdr {:car 5, :cdr {:car 5, :cdr {:car 8, :cdr }}}}::linked_list_lab.core.Cons
+      Actual: {:car 1, :cdr }::linked_list_lab.core.Cons
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init7594947893163022480.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
+Subprocess failed
+
+
+** Details for Delete truncates list.
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init112845331990744094.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
+Subprocess failed
+
+
+** Details for Delete doesn't decrement size.
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init6382101649926593457.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
+Subprocess failed
+
+
+** Details for Delete always decrements size.
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init5246953183638872707.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
+Subprocess failed
+
+
+** Details for Delete-all only deletes one.
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init4992134966319226373.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
+Subprocess failed
+
+
+** Details for Delete all decrements count in all cases.
+
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.clojure.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.config, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.levels, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.pile, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.repl, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.api, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.emission.plugins.default-failure-lines, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.nested-facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.metadata, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.recognizing, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.sweet, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.doc, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkables, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.core, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.prerequisite-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.fnref, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.error-handling, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.lexical-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.3-from-lexical-maps.from-fake-maps, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checkers, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.chatty, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.simple, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-util, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.checking.checkers.collection-comparison, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.util.laziness, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.parse-background, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.data-fakes, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.2-to-lexical-maps.expects, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.util.wrapping, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.tabular, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.1-to-explicit-form.facts, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.compendium, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
+WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
+Exception in thread "main" java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value, compiling:(linked_list_lab/t_core.clj:59:29)
+	at clojure.lang.Compiler.load(Compiler.java:7142)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5066.invoke(core.clj:5641)
+	at clojure.core$load.doInvoke(core.clj:5640)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5446)
+	at clojure.core$load_lib$fn__5015.invoke(core.clj:5486)
+	at clojure.core$load_lib.doInvoke(core.clj:5485)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$load_libs.doInvoke(core.clj:5524)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:626)
+	at clojure.core$require.doInvoke(core.clj:5607)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__7561.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval7624.invoke(form-init7117824719705950811.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.eval(Compiler.java:6693)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7086)
+	at clojure.main$load_script.invoke(main.clj:274)
+	at clojure.main$init_opt.invoke(main.clj:279)
+	at clojure.main$initialize.invoke(main.clj:307)
+	at clojure.main$null_opt.invoke(main.clj:342)
+	at clojure.main$main.doInvoke(main.clj:420)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:383)
+	at clojure.lang.AFn.applyToHelper(AFn.java:156)
+	at clojure.lang.Var.applyTo(Var.java:700)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.IllegalArgumentException: Wrong number of args passed to keyword: :irrelevant-return-value
+	at clojure.lang.Keyword.throwArity(Keyword.java:92)
+	at clojure.lang.Keyword.invoke(Keyword.java:105)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840$fn__7841.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839$fn__7840.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5802.invoke(facts.clj:21)
+	at midje.checking.facts$check_one.invoke(facts.clj:20)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837$fn__7838$fn__7839.invoke(t_core.clj:61)
+	at midje.util.thread_safe_var_nesting$with_altered_roots_STAR_.invoke(thread_safe_var_nesting.clj:32)
+	at linked_list_lab.t_core$eval7837$fn__7838.invoke(t_core.clj:61)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.AFn.applyTo(AFn.java:144)
+	at clojure.lang.AFunction$1.doInvoke(AFunction.java:29)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at midje.checking.facts$check_one$fn__5804.invoke(facts.clj:31)
+	at midje.checking.facts$check_one.invoke(facts.clj:30)
+	at midje.checking.facts$creation_time_check.invoke(facts.clj:35)
+	at linked_list_lab.t_core$eval7837.invoke(t_core.clj:61)
+	at clojure.lang.Compiler.eval(Compiler.java:6703)
+	at clojure.lang.Compiler.load(Compiler.java:7130)
+	... 35 more
 Subprocess failed
