@@ -54,10 +54,16 @@
       (-> (insert-ordered nulist 9) :data) => (list-to-cons '(1 5 8 9))
       (-> (insert-ordered nulist 5) :data) => (list-to-cons '(1 5 5 8)))))
 
-(facts "about `delete`")
+(facts "about `delete`"
+       (let [list (List. (list-to-cons '(1 2 2 2 3 3 4 4 5)) 9)]
+         (fact "it properly deletes a single element from a list and decrements the size"
+               (delete 1 list) => (List. (list-to-cons '(2 2 2 3 3 4 4 5)) 8)
+               (delete 5 list) => (List. (list-to-cons '(1 2 2 2 3 3 4 4)) 8))
+         (fact "it only deletes the first occurance of an element present more than once and decrements size"
+               (delete 2 list) => (List. (list-to-cons '(1 2 2 3 3 4 4 5)) 8)
+               (delete 3 list) => (List. (list-to-cons '(1 2 2 2 3 4 4 5)) 8))
+         (fact "it returns the original list and size if the element is not in the list"
+               (delete 6 list) => (List. (list-to-cons '(1 2 2 2 3 3 4 4 5)) 9))
+         
 
 (facts "about `delete-all`")
-
-(facts "about this lab"
-  (fact "the student never started.  Fix this `facts` from."
-    (42 => 42)))
