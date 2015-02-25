@@ -59,10 +59,10 @@
                (:size (delete 6 nulist)) => 3)))
 
 (facts "about `delete-all`"
-       (let [nulist2 (List. (Cons. 1 (Cons. 2 (Cons. 2 (Cons. 2 (Cons. 5 (Cons. 8 nil)))))) 5)]
+       (let [nulist2 (List. (Cons. 1 (Cons. 2 (Cons. 2 (Cons. 2 (Cons. 5 (Cons. 8 nil)))))) 6)]
          (fact "it deletes all 'elt' form 'xx'"
                (:size (delete-all 2 nulist2)) => 3
-               (:size (delete-all 7 nulist2)) => 5)))
+               (:size (delete-all 7 nulist2)) => 6)))
 
 
 
