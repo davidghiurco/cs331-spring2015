@@ -77,6 +77,7 @@ This is used by `insert-ordered`."
 (defn delete_h [elt xx])
 
 ;; The `delete` function will delete one element from the list.
+
 ;; Test broke-6 will truncate the list past the deletion point.
 ;; Test broke-7 will forget to decrement the size.
 ;; Test broke-8 will always decrement the size, even if the element is not found.

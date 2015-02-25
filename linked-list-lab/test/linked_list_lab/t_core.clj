@@ -34,7 +34,9 @@
     (list-to-cons nil) => nil
     (list-to-cons '(3)) => (Cons. 3 nil)
     (list-to-cons '(4 2)) => (Cons. 4 (Cons. 2 nil))
-    (list-to-cons '(6 2 7))  => (Cons. 6 (Cons. 2 (Cons. 7 nil)))))
+    (list-to-cons '(6 2 7))  => (Cons. 6 (Cons. 2 (Cons. 7 nil))))
+  (fact "it passes Test broke-1"
+        ))
 
 (facts "about `cons-to-list`"
   (fact "it converts lists properly"
@@ -58,4 +60,4 @@
 
 (facts "about this lab"
   (fact "the student never started.  Fix this `facts` from."
-    (+ 10 20) => 42))
+    (42 => 42)))
