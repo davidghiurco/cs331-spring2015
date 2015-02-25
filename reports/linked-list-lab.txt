@@ -1,5 +1,5 @@
 Lab report for Linked List Lab - dghiurco
-Timestamp: 2015-02-25 00:15:25
+Timestamp: 2015-02-25 00:47:10
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
@@ -112,8 +112,8 @@ WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.p
 WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
 WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
 
-FAIL "about this lab - the student never started.  Fix this `facts` from." at (t_core.clj:65)
-    Expected: 42
-      Actual: 30
-FAILURE: 1 check failed.  (But 27 succeeded.)
+FAIL "about `delete-all` - it deletes all 'elt' form 'xx'" at (t_core.clj:65)
+    Expected: 5
+      Actual: 6
+FAILURE: 1 check failed.  (But 29 succeeded.)
 Subprocess failed
