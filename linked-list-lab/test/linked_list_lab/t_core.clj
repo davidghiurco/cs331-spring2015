@@ -62,4 +62,4 @@
 
 (facts "about this lab"
   (fact "the student never started.  Fix this `facts` from."
-    (+ 10 20) => 42))
+     (+ 12 30) => 42))
