@@ -116,7 +116,7 @@ This is used by `insert-ordered`."
   ([elt xx]
   (let [y (dh elt (:data xx))]
   (cond (.equals (:data xx) y) xx
-  :else (List. y (:size xx))))))
+  :else (List. y (count (cons-to-list y)))))))
 
 
 
