@@ -34,9 +34,7 @@
     (list-to-cons nil) => nil
     (list-to-cons '(3)) => (Cons. 3 nil)
     (list-to-cons '(4 2)) => (Cons. 4 (Cons. 2 nil))
-    (list-to-cons '(6 2 7))  => (Cons. 6 (Cons. 2 (Cons. 7 nil))))
-  (fact "it passes Test broke-1"
-        ))
+    (list-to-cons '(6 2 7))  => (Cons. 6 (Cons. 2 (Cons. 7 nil)))))
 
 (facts "about `cons-to-list`"
   (fact "it converts lists properly"
@@ -55,15 +53,13 @@
       (-> (insert-ordered nulist 5) :data) => (list-to-cons '(1 5 5 8)))))
 
 (facts "about `delete`"
-       (let [list (List. (list-to-cons '(1 2 2 2 3 3 4 4 5)) 9)]
-         (fact "it properly deletes a single element from a list and decrements the size"
-               (delete 1 list) => (List. (list-to-cons '(2 2 2 3 3 4 4 5)) 8)
-               (delete 5 list) => (List. (list-to-cons '(1 2 2 2 3 3 4 4)) 8))
-         (fact "it only deletes the first occurance of an element present more than once and decrements size"
-               (delete 2 list) => (List. (list-to-cons '(1 2 2 3 3 4 4 5)) 8)
-               (delete 3 list) => (List. (list-to-cons '(1 2 2 2 3 4 4 5)) 8))
-         (fact "it returns the original list and size if the element is not in the list"
-               (delete 6 list) => (List. (list-to-cons '(1 2 2 2 3 3 4 4 5)) 9))
-         
-
+(let [nulist (List. (Cons. 1 (Cons. 5 (Cons. 8 nil))) 3)]
+(fact "Delete `elt` from `xx`."
+      (:size (delete 5 nulist)) => 2
+      (:size (delete 6 nulist)) => 3
+)))
 (facts "about `delete-all`")
+
+(facts "about this lab"
+  (fact "the student never started.  Fix this `facts` from."
+    (+ 10 20) => 42))
