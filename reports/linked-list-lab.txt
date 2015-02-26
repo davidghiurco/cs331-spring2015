@@ -1,9 +1,9 @@
 Lab report for Linked List Lab - dghiurco
-Timestamp: 2015-02-25 10:04:50
+Timestamp: 2015-02-25 18:10:12
 
 |  :scenario |                                    :title |                              :result | :score |
 |------------+-------------------------------------------+--------------------------------------+--------|
-|    working |     Test student code vs instructor tests |                                 Fail |     42 |
+|    working |     Test student code vs instructor tests |                                 Pass |     45 |
 | qualifying |     Test student tests vs instructor code |                                 Pass |      5 |
 |    broke-1 |            Insert doesn't increment size. | Pass: student tests detected errors. |      5 |
 |    broke-2 |                    Insert doesn't insert. | Pass: student tests detected errors. |      5 |
@@ -15,7 +15,7 @@ Timestamp: 2015-02-25 10:04:50
 |    broke-8 |            Delete always decrements size. | Pass: student tests detected errors. |      5 |
 |    broke-9 |              Delete-all only deletes one. | Pass: student tests detected errors. |      5 |
 |   broke-10 | Delete all decrements count in all cases. | Pass: student tests detected errors. |      5 |
-|      total |                               Total Score |                                      |     97 |
+|      total |                               Total Score |                                      |    100 |
 
 Details:
 
@@ -62,20 +62,7 @@ WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.d
 WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.0-to-fact-form.formulas, being replaced by: #'midje.clojure.core/record?
 WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.data.project-state, being replaced by: #'midje.clojure.core/record?
 WARNING: record? already refers to: #'clojure.core/record? in namespace: midje.parsing.other.arglists, being replaced by: #'midje.clojure.core/record?
-
-FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:81)
-    Expected: 3
-      Actual: 5
-
-FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:82)
-    Expected: 3
-      Actual: 5
-
-FAIL "about `delete-all` - it handles size correctly." at (t_core.clj:83)
-    Expected: 4
-      Actual: 5
-FAILURE: 3 checks failed.  (But 42 succeeded.)
-Subprocess failed
+All checks (45) succeeded.
 
 
 ** Details for Test student tests vs instructor code
