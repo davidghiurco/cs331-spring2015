@@ -1,0 +1,683 @@
+Lab report for Deque Lab - dghiurco
+Timestamp: 2015-03-09 17:59:03
+
+|  :scenario |                                :title | :result | :score |
+|------------+---------------------------------------+---------+--------|
+|    working | Test student code vs instructor tests |    Fail |     34 |
+| qualifying | Test student tests vs instructor code |         |        |
+|    broke-1 |             deque-size only returns 0 |         |        |
+|    broke-2 |     push-front doesn't increment size |         |        |
+|    broke-3 |        pop-back lets size go negative |         |        |
+|    broke-4 |            pop-front doesn't dec size |         |        |
+|    broke-5 |          push-back inserts into front |         |        |
+|    broke-6 |     flip-front doesn't clear the back |         |        |
+|    broke-7 |     flip-back doesn't clear the front |         |        |
+|    broke-8 |                back doesn't flip list |         |        |
+|    broke-9 |        front references the back list |         |        |
+|   broke-10 |               flip-front flips always |         |        |
+|      total |                           Total Score |         |     34 |
+
+Details:
+
+
+** Details for Test student code vs instructor tests
+
+
+FAIL "about push-front and pop - pop-front removes elements from the front" at (t_core.clj:50)
+    Expected: 0
+      Actual: -1
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:55)
+    Expected: ()
+      Actual: (34 20 10)
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:56)
+    Expected: (20 34)
+      Actual: ()
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:58)
+    Expected: 20
+      Actual: nil
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:61)
+    Expected: ()
+      Actual: (34 20 10)
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:62)
+    Expected: (34)
+      Actual: ()
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:64)
+    Expected: 34
+      Actual: nil
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:67)
+    Expected: ()
+      Actual: (34 20 10)
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:69)
+    Expected: nil
+      Actual: 34
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:72)
+    Expected: 0
+      Actual: -1
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:73)
+    Expected: ()
+      Actual: (34 20 10)
+
+FAIL "about push-front and pop - pop-back removes elements from the back" at (t_core.clj:75)
+    Expected: nil
+      Actual: 34
+
+FAIL "about push-back and pop - pop-back removes elements from the back" at (t_core.clj:115)
+    Expected: 0
+      Actual: -1
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:120)
+    Expected: ()
+      Actual: (34 20 10)
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:121)
+    Expected: (20 34)
+      Actual: ()
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:123)
+    Expected: 20
+      Actual: nil
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:126)
+    Expected: ()
+      Actual: (34 20 10)
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:127)
+    Expected: (34)
+      Actual: ()
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:129)
+    Expected: 34
+      Actual: nil
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:132)
+    Expected: ()
+      Actual: (34 20 10)
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:134)
+    Expected: nil
+      Actual: 34
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:137)
+    Expected: 0
+      Actual: -1
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:138)
+    Expected: ()
+      Actual: (34 20 10)
+
+FAIL "about push-back and pop - pop-front removes elements from the front" at (t_core.clj:140)
+    Expected: nil
+      Actual: 34
+FAILURE: 24 checks failed.  (But 76 succeeded.)
+Subprocess failed
+
+
+** Details for Test student tests vs instructor code
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init7974347539598582329.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
+
+
+** Details for deque-size only returns 0
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init1092061799357198572.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
+
+
+** Details for push-front doesn't increment size
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init8994711855932524793.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
+
+
+** Details for pop-back lets size go negative
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init4733760871596390901.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
+
+
+** Details for pop-front doesn't dec size
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init14093915511337042.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
+
+
+** Details for push-back inserts into front
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init6009774763692861111.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
+
+
+** Details for flip-front doesn't clear the back
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init5452236650559525091.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
+
+
+** Details for flip-back doesn't clear the front
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init3510173490964177532.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
+
+
+** Details for back doesn't flip list
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init5838774389932325208.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
+
+
+** Details for front references the back list
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init1406763450039302919.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
+
+
+** Details for flip-front flips always
+
+Exception in thread "main" java.lang.RuntimeException: EOF while reading, starting at line 7, compiling:(deque/t_core.clj:17:1)
+	at clojure.lang.Compiler.load(Compiler.java:7071)
+	at clojure.lang.RT.loadResourceScript(RT.java:370)
+	at clojure.lang.RT.loadResourceScript(RT.java:361)
+	at clojure.lang.RT.load(RT.java:440)
+	at clojure.lang.RT.load(RT.java:411)
+	at clojure.core$load$fn__5018.invoke(core.clj:5530)
+	at clojure.core$load.doInvoke(core.clj:5529)
+	at clojure.lang.RestFn.invoke(RestFn.java:408)
+	at clojure.core$load_one.invoke(core.clj:5336)
+	at clojure.core$load_lib$fn__4967.invoke(core.clj:5375)
+	at clojure.core$load_lib.doInvoke(core.clj:5374)
+	at clojure.lang.RestFn.applyTo(RestFn.java:142)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$load_libs.doInvoke(core.clj:5413)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:619)
+	at clojure.core$require.doInvoke(core.clj:5496)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at midje.repl$load_facts$fn__6189.invoke(repl.clj:206)
+	at midje.repl$load_facts.doInvoke(repl.clj:192)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at user$eval6251.invoke(form-init8279949472807891160.clj:1)
+	at clojure.lang.Compiler.eval(Compiler.java:6619)
+	at clojure.lang.Compiler.eval(Compiler.java:6609)
+	at clojure.lang.Compiler.load(Compiler.java:7064)
+	at clojure.lang.Compiler.loadFile(Compiler.java:7020)
+	at clojure.main$load_script.invoke(main.clj:294)
+	at clojure.main$init_opt.invoke(main.clj:299)
+	at clojure.main$initialize.invoke(main.clj:327)
+	at clojure.main$null_opt.invoke(main.clj:362)
+	at clojure.main$main.doInvoke(main.clj:440)
+	at clojure.lang.RestFn.invoke(RestFn.java:421)
+	at clojure.lang.Var.invoke(Var.java:419)
+	at clojure.lang.AFn.applyToHelper(AFn.java:163)
+	at clojure.lang.Var.applyTo(Var.java:532)
+	at clojure.main.main(main.java:37)
+Caused by: java.lang.RuntimeException: EOF while reading, starting at line 7
+	at clojure.lang.Util.runtimeException(Util.java:219)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1139)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.readDelimitedList(LispReader.java:1148)
+	at clojure.lang.LispReader$ListReader.invoke(LispReader.java:982)
+	at clojure.lang.LispReader.read(LispReader.java:185)
+	at clojure.lang.Compiler.load(Compiler.java:7060)
+	... 35 more
+Subprocess failed
