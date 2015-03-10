@@ -31,7 +31,7 @@
   "Flip the back list to the front list, if necessary."
   [dq]
   (let [{:keys [front back size]} dq]
-    (cond (nil? front)  (Deque. (reverse back) nil size)
+    (cond (empty? front)  (Deque. (reverse back) '() size)
           :else dq))
 )
 
@@ -39,7 +39,7 @@
   "Flip the front list to the back list, if necessary."
   [dq]
   (let [{:keys [front back size]} dq]
-    (cond (nil? back)  (Deque. nil (reverse front) size)
+    (cond (empty? back)  (Deque. '() (reverse front) size)
           :else dq))
 )
 
@@ -62,8 +62,9 @@
   "pops/dequeues an element from the front of the deque."
   [dq]
   (let [{:keys [front back size]} dq]
-    (cond (nil? front)  (Deque. (rest (:front (flip-front dq))) nil (dec size))
-    :else (Deque. (rest front) back (dec size))))
+    (cond (= size 0) dq
+          (empty? front) (Deque. (rest (:front (flip-front dq))) '() (dec size))
+          :else (Deque. (rest front) back (dec size))))
 )
 
 
@@ -71,6 +72,7 @@
   "pops/dequeues an element from the back of the deque."
   [dq]
   (let [{:keys [front back size]} dq]
-    (cond (nil? back) (Deque. nil (rest (:back (flip-back dq))) (dec size))
-    :else (Deque. front (rest back) (dec size))))
+    (cond (= size 0) dq
+          (empty? back) (Deque. '() (rest (:back (flip-back dq))) (dec size))
+          :else (Deque. front (rest back) (dec size))))
 )
