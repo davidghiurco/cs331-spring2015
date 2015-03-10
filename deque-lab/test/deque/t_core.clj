@@ -43,3 +43,11 @@
        (fact "it flips the front list to the back list, if necessary"
              (let [dq (Deque. '(1 2 3 4 5 6) '() 6)]
                (flip-back dq) => (Deque. '() '(6 5 4 3 2 1) 6))))
+(facts "about front"
+       (fact "it retuns the front element of the deque. May cause a flip"
+             (let [dq (Deque. '(1 2 3) '(6 5 4) 6)]
+               (front dq) => 1)))
+(facts "about back"
+       (fact "it returns the back element of the deque. May cause a flip"
+             (let [dq (Deque. '(1 2 3 4 5 6) '() 6)]
+               (back dq) => 6)))
