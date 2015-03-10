@@ -1,21 +1,21 @@
 Lab report for Deque Lab - dghiurco
-Timestamp: 2015-03-10 17:06:12
+Timestamp: 2015-03-10 17:27:51
 
-|  :scenario |                                :title |                                   :result | :score |
-|------------+---------------------------------------+-------------------------------------------+--------|
-|    working | Test student code vs instructor tests |                                      Pass |     45 |
-| qualifying | Test student tests vs instructor code |                                      Pass |      5 |
-|    broke-1 |             deque-size only returns 0 |      Pass: student tests detected errors. |      5 |
-|    broke-2 |     push-front doesn't increment size |      Pass: student tests detected errors. |      5 |
-|    broke-3 |        pop-back lets size go negative |      Pass: student tests detected errors. |      5 |
-|    broke-4 |            pop-front doesn't dec size |      Pass: student tests detected errors. |      5 |
-|    broke-5 |          push-back inserts into front |      Pass: student tests detected errors. |      5 |
-|    broke-6 |     flip-front doesn't clear the back |      Pass: student tests detected errors. |      5 |
-|    broke-7 |     flip-back doesn't clear the front |      Pass: student tests detected errors. |      5 |
-|    broke-8 |                back doesn't flip list | Fail: Student tests did not detect error. |      0 |
-|    broke-9 |        front references the back list | Fail: Student tests did not detect error. |      0 |
-|   broke-10 |               flip-front flips always |      Pass: student tests detected errors. |      5 |
-|      total |                           Total Score |                                           |     90 |
+|  :scenario |                                :title |                              :result | :score |
+|------------+---------------------------------------+--------------------------------------+--------|
+|    working | Test student code vs instructor tests |                                 Pass |     45 |
+| qualifying | Test student tests vs instructor code |                                 Pass |      5 |
+|    broke-1 |             deque-size only returns 0 | Pass: student tests detected errors. |      5 |
+|    broke-2 |     push-front doesn't increment size | Pass: student tests detected errors. |      5 |
+|    broke-3 |        pop-back lets size go negative | Pass: student tests detected errors. |      5 |
+|    broke-4 |            pop-front doesn't dec size | Pass: student tests detected errors. |      5 |
+|    broke-5 |          push-back inserts into front | Pass: student tests detected errors. |      5 |
+|    broke-6 |     flip-front doesn't clear the back | Pass: student tests detected errors. |      5 |
+|    broke-7 |     flip-back doesn't clear the front | Pass: student tests detected errors. |      5 |
+|    broke-8 |                back doesn't flip list | Pass: student tests detected errors. |      5 |
+|    broke-9 |        front references the back list | Pass: student tests detected errors. |      5 |
+|   broke-10 |               flip-front flips always | Pass: student tests detected errors. |      5 |
+|      total |                           Total Score |                                      |    100 |
 
 Details:
 
@@ -27,7 +27,7 @@ All checks (100) succeeded.
 
 ** Details for Test student tests vs instructor code
 
-All checks (11) succeeded.
+All checks (13) succeeded.
 
 
 ** Details for deque-size only returns 0
@@ -44,7 +44,7 @@ FAIL "about pop-front - it pops/dequeues an element from the front of the deque"
 FAIL "about pop-back - pops/dequeues an element from the back of the deque" at (t_core.clj:31)
     Expected: {:back (6 5 4 3 2 1), :front clojure.lang.PersistentList$EmptyList@1, :size 6}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front (1 2 3 4 5 6 7), :size 7}::deque.core.Deque
-FAILURE: 3 checks failed.  (But 8 succeeded.)
+FAILURE: 3 checks failed.  (But 10 succeeded.)
 Subprocess failed
 
 
@@ -54,7 +54,7 @@ Subprocess failed
 FAIL "about push-front - it adds an element to the front of the deque" at (t_core.clj:16)
     Expected: {:back (6 5 4), :front (7 1 2 3), :size 7}::deque.core.Deque
       Actual: {:back (6 5 4), :front (7 1 2 3), :size 6}::deque.core.Deque
-FAILURE: 1 check failed.  (But 10 succeeded.)
+FAILURE: 1 check failed.  (But 12 succeeded.)
 Subprocess failed
 
 
@@ -64,7 +64,7 @@ Subprocess failed
 FAIL "about pop-back - it does not allow size to get negative" at (t_core.clj:34)
     Expected: 0
       Actual: -1
-FAILURE: 1 check failed.  (But 10 succeeded.)
+FAILURE: 1 check failed.  (But 12 succeeded.)
 Subprocess failed
 
 
@@ -74,7 +74,7 @@ Subprocess failed
 FAIL "about pop-front - it pops/dequeues an element from the front of the deque" at (t_core.clj:20)
     Expected: {:back clojure.lang.PersistentList$EmptyList@1, :front (6 24 9 4 2), :size 5}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front (6 24 9 4 2), :size 6}::deque.core.Deque
-FAILURE: 1 check failed.  (But 10 succeeded.)
+FAILURE: 1 check failed.  (But 12 succeeded.)
 Subprocess failed
 
 
@@ -84,7 +84,7 @@ Subprocess failed
 FAIL "about push-back - it adds an element to the back of the deque" at (t_core.clj:27)
     Expected: {:back (23), :front clojure.lang.PersistentList$EmptyList@1, :size 1}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front (23), :size 1}::deque.core.Deque
-FAILURE: 1 check failed.  (But 10 succeeded.)
+FAILURE: 1 check failed.  (But 12 succeeded.)
 Subprocess failed
 
 
@@ -98,7 +98,7 @@ FAIL "about pop-front - it pops/dequeues an element from the front of the deque"
 FAIL "about flip-front - it flips the back list to the front list, if necessary" at (t_core.clj:38)
     Expected: {:back clojure.lang.PersistentList$EmptyList@1, :front (1 2 3 4 5 6), :size 6}::deque.core.Deque
       Actual: {:back (6 5 4 3 2 1), :front (1 2 3 4 5 6), :size 6}::deque.core.Deque
-FAILURE: 2 checks failed.  (But 9 succeeded.)
+FAILURE: 2 checks failed.  (But 11 succeeded.)
 Subprocess failed
 
 
@@ -112,18 +112,28 @@ FAIL "about pop-back - pops/dequeues an element from the back of the deque" at (
 FAIL "about flip-back - it flips the front list to the back list, if necessary" at (t_core.clj:45)
     Expected: {:back (6 5 4 3 2 1), :front clojure.lang.PersistentList$EmptyList@1, :size 6}::deque.core.Deque
       Actual: {:back (6 5 4 3 2 1), :front (1 2 3 4 5 6), :size 6}::deque.core.Deque
-FAILURE: 2 checks failed.  (But 9 succeeded.)
+FAILURE: 2 checks failed.  (But 11 succeeded.)
 Subprocess failed
 
 
 ** Details for back doesn't flip list
 
-All checks (11) succeeded.
+
+FAIL "about back - it returns the back element of the deque. May cause a flip" at (t_core.clj:53)
+    Expected: 6
+      Actual: nil
+FAILURE: 1 check failed.  (But 12 succeeded.)
+Subprocess failed
 
 
 ** Details for front references the back list
 
-All checks (11) succeeded.
+
+FAIL "about front - it retuns the front element of the deque. May cause a flip" at (t_core.clj:49)
+    Expected: 1
+      Actual: 6
+FAILURE: 1 check failed.  (But 12 succeeded.)
+Subprocess failed
 
 
 ** Details for flip-front flips always
@@ -132,5 +142,9 @@ All checks (11) succeeded.
 FAIL "about flip-front - it does not flip when the front list is not empty" at (t_core.clj:41)
     Expected: {:back (6 5 4 3), :front (1 2), :size 6}::deque.core.Deque
       Actual: {:back clojure.lang.PersistentList$EmptyList@1, :front (3 4 5 6), :size 6}::deque.core.Deque
-FAILURE: 1 check failed.  (But 10 succeeded.)
+
+FAIL "about front - it retuns the front element of the deque. May cause a flip" at (t_core.clj:49)
+    Expected: 1
+      Actual: 4
+FAILURE: 2 checks failed.  (But 11 succeeded.)
 Subprocess failed
