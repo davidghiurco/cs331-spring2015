@@ -28,7 +28,8 @@
 )
 
 (defn flip-front
-  "Flip the back list to the front list, if necessary."
+  "Flip
+ the back list to the front list, if necessary."
   [dq]
   (let [{:keys [front back size]} dq]
     (cond (empty? front)  (Deque. (reverse back) '() size)

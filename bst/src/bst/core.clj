@@ -22,8 +22,7 @@
 ;; A warmup function.
 
 (defn size "Return the size of the tree."
-  [t]
-  0)
+  [t] (:size t))
 
 ;; # Add
 ;;
@@ -31,9 +30,13 @@
 ;; If someone tries to add a key that is already there, we replace the value
 ;; with the new entry.
 
-(defn add "Add a key and value to the BST."
+(defn add-h "Helper function"
   [bst nu-key nu-val]
-  nil)
+  (cond (nil? (:root bst)) (BST. (BNode. nil nu-key nu-val nil) (inc (:size bst)))
+        (< nu-key (:key (:root bst))) (let [bstemp (add (BST. (:left bst) size) nu-key nu-val)] (BST. (BNode. (:root bstemp) (:key (:root bst))  (:value (:root bst)) (:right (:root bst))) (:size bstemp)))
+        (> nu-key (:key (:root bst))) (let [bstemp (add (BST. (:right bst) size)  nu-key nu-val)] (BST. (BNode. (:left (:root bst)) (:key (:root bst)) (:value (:root bst))  (:root bstemp)) (:size bstemp))) 
+                                        :else (BST. (BNode. (:left (:root bst)) (:key (:root bst))  nu-val (:right (:root bst))) (:size bst))))
+(defn add "Add a key and value to the BST"
 
 ;; # Find
 ;;
