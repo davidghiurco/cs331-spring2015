@@ -36,18 +36,19 @@
         (pos? (compare [nu-key] [(:key node)])) (make-node (add-h (:left node) nu-key nu-val) (:key node)  (:value node) (:right node))
         (neg? (compare [nu-key] [(:key node)])) (make-node (:left node) (:key node) (:value node)  (add-h (:right node) nu-key nu-val)) 
         :else (make-node  (:left node) (:key node)  nu-val (:right node))))
+
 (defn preorder [bst]
   (when-not (nil? bst)
     (cons (:key bst)
           (concat (preorder (:left bst ))
                   (preorder (:right bst))))))
+
 (defn add "Add a key and value to the BST"
   [bst nu-key nu-val]
   (let [nu-tree (add-h (:root bst) nu-key nu-val)]
     (cond (neg? (compare [(count (preorder (:root bst)))] [(count (preorder nu-tree))]))
           (BST. nu-tree (inc (:size bst)))
           :else (BST. nu-tree (:size bst)))))
-
     
 
 ;; # Find
@@ -56,28 +57,29 @@
 ;; version of the function must search the entire tree!  If the search item is not
 ;; there, return nil.
 
-(defn find-h 
-  [bst look-key]
-  (cond (nil?  bst) nil
-        (zero? (compare (:key bst) look-key)) (:value bst)
-        (pos? (compare (:key bst) look-key)) (find-h (:left bst) look-key)
-        :else (find-h (:right bst) look-key)))
+(defn find-helper
+  [node look-key]
+  (cond (nil? node) nil
+        (zero? (compare look-key (:key node))) (:value node)
+        (neg? (compare look-key (:key node))) (find-helper (:left node) look-key)
+        :else (find-helper (:right node) look-key)))
 
 (defn find "Look for a key and return the corresponding value."
   [bst look-key]
-  (find-h (:root bst) look-key))
+  (find-helper (:root bst) look-key))
 
 
-(defn find-key-h 
-  [bst look-value]
-  (cond (nil? bst) nil
-        (zero? (compare [(:value bst)] [look-value])) (:key bst)
-        :else (let [left-value (find-key-h (:left bst) look-value)]
-                (cond (nil? left-value) (find-key-h (:right bst) look-value)
-                    :else left-value))))
+(defn find-key-h
+   [bst look-value]
+   (cond (nil?  bst) nil
+         (zero? (compare look-value (:value bst))) (:key bst)
+         :else (let [left-value (find-key-h (:left bst) look-value)]
+                     (cond (nil? left-value) (find-key-h (:right bst) look-value) 
+                           :else left-value))))
 (defn find-key "Look for a value and return the corresponding key."
   [bst look-value]
   (find-key-h (:root bst) look-value))
+        
 
 ;; # Delete
 ;;
