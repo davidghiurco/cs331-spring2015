@@ -31,12 +31,27 @@
 ;; with the new entry.
 
 (defn add-h "Helper function"
-  [bst nu-key nu-val]
-  (cond (nil? (:root bst)) (BST. (BNode. nil nu-key nu-val nil) (inc (:size bst)))
-        (< nu-key (:key (:root bst))) (let [bstemp (add (BST. (:left bst) size) nu-key nu-val)] (BST. (BNode. (:root bstemp) (:key (:root bst))  (:value (:root bst)) (:right (:root bst))) (:size bstemp)))
-        (> nu-key (:key (:root bst))) (let [bstemp (add (BST. (:right bst) size)  nu-key nu-val)] (BST. (BNode. (:left (:root bst)) (:key (:root bst)) (:value (:root bst))  (:root bstemp)) (:size bstemp))) 
-                                        :else (BST. (BNode. (:left (:root bst)) (:key (:root bst))  nu-val (:right (:root bst))) (:size bst))))
+  [node nu-key nu-val]
+  (cond (nil? node) (make-node nu-key nu-val)
+        (pos? (compare [nu-key] [(:key node)])) (make-node (add-h (:left node) nu-key nu-val) (:key node)  (:value node) (:right node))
+        (neg? (compare [nu-key] [(:key node)])) (make-node (:left node) (:key node) (:value node)  (add-h (:right node) nu-key nu-val)) 
+        :else (make-node  (:left node) (:key node)  nu-val (:right node))))
+
+(declare preorder)
 (defn add "Add a key and value to the BST"
+  [bst nu-key nu-val]
+  (let [nu-tree (add-h (:root bst) nu-key nu-val)]
+    (cond (neg? (compare [(count (preorder (:root bst)))] [(count (preorder nu-tree))]))
+          (BST. nu-tree (inc (:size bst)))
+          :else (BST. nu-tree (:size bst)))))
+
+(defn preorder [bst]
+  (when-not (nil? bst)
+    (cons (:key bst)
+          (concat (preorder (:left bst ))
+                  (preorder (:right bst))))))
+
+    
 
 ;; # Find
 ;;
