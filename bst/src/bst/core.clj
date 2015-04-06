@@ -51,35 +51,44 @@
           :else (BST. nu-tree (:size bst)))))
     
 
+
+
+
 ;; # Find
 ;; We need two versions of find.  The first one takes a key and returns the
 ;; value.  The second takes a value and returns the key.  Note that the second
 ;; version of the function must search the entire tree!  If the search item is not
 ;; there, return nil.
 
-(defn find-helper
+(defn find-h
   [node look-key]
   (cond (nil? node) nil
         (zero? (compare look-key (:key node))) (:value node)
-        (neg? (compare look-key (:key node))) (find-helper (:left node) look-key)
-        :else (find-helper (:right node) look-key)))
-
+        :else (let [left-value (find-h (:left node) look-key)]
+                (cond (nil? left-value) (find-h (:right node) look-key)
+                      :else left-value))))
 (defn find "Look for a key and return the corresponding value."
   [bst look-key]
-  (find-helper (:root bst) look-key))
+  (find-h (:root bst) look-key))
+
+
 
 
 (defn find-key-h
-   [bst look-value]
-   (cond (nil?  bst) nil
-         (zero? (compare look-value (:value bst))) (:key bst)
-         :else (let [left-value (find-key-h (:left bst) look-value)]
-                     (cond (nil? left-value) (find-key-h (:right bst) look-value) 
+   [node look-value]
+   (cond (nil?  node) nil
+         (zero? (compare look-value (:value node))) (:key node)
+         :else (let [left-value (find-key-h (:left node) look-value)]
+                     (cond (nil? left-value) (find-key-h (:right node) look-value) 
                            :else left-value))))
 (defn find-key "Look for a value and return the corresponding key."
   [bst look-value]
   (find-key-h (:root bst) look-value))
         
+
+
+
+
 
 ;; # Delete
 ;;
