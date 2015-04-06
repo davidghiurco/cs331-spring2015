@@ -1,12 +1,12 @@
 Lab report for BST Lab - dghiurco
-Timestamp: 2015-04-06 17:59:26
+Timestamp: 2015-04-06 18:15:05
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
-|    working | Test student code vs instructor tests |                      Fail |     13 |
+|    working | Test student code vs instructor tests |                      Fail |     18 |
 | qualifying | Test student tests vs instructor code |                      Fail |      0 |
 | qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     13 |
+|      total |                           Total Score |                           |     18 |
 
 Details:
 
@@ -23,30 +23,6 @@ FAIL "Internal Tests - has a functioning tree-to-list" at (t_core.clj:36)
 FAIL "Internal Tests - has a functioning tree-to-list" at (t_core.clj:43)
     Expected: ([g 1] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
       Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:64)
-    Expected: 2
-      Actual: nil
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:65)
-    Expected: 3
-      Actual: nil
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:66)
-    Expected: 7
-      Actual: nil
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:67)
-    Expected: 6
-      Actual: nil
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:68)
-    Expected: 5
-      Actual: nil
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:69)
-    Expected: 4
-      Actual: nil
 
 FAIL "Delete - Does nothing to empty trees." at (t_core.clj:91)
     Expected: {:root , :size 0}::bst.core.BST
@@ -167,7 +143,7 @@ FAIL "map-tree - maps stuff onto trees." at (t_core.clj:259)
 FAIL "map-tree - maps stuff onto trees." at (t_core.clj:266)
     Expected: ([d 0] ([b 1] ([a 3] nil nil) ([c 4] nil nil)) ([f 2] ([e 5] nil nil) ([g 6] nil nil)))
       Actual: nil
-FAILURE: 38 checks failed.  (But 17 succeeded.)
+FAILURE: 32 checks failed.  (But 23 succeeded.)
 Subprocess failed
 
 
