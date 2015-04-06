@@ -59,9 +59,10 @@
 (defn find-h 
   [bst look-key]
   (cond (nil?  bst) nil
-        (zero? (compare [look-key] [(:key bst)])) (:value bst)
-        (neg? (compare [look-key] [(:key bst)])) (find-h (:left bst) look-key)
+        (zero? (compare (:key bst) look-key)) (:value bst)
+        (pos? (compare (:key bst) look-key)) (find-h (:left bst) look-key)
         :else (find-h (:right bst) look-key)))
+
 (defn find "Look for a key and return the corresponding value."
   [bst look-key]
   (find-h (:root bst) look-key))
