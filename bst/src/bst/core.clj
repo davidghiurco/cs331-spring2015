@@ -95,12 +95,39 @@
 ;; Similiarly, we have two versions of delete.  Please use the predecessor node if
 ;; you need to delete a child with two elements.
 
-(defn delete [bst victim]
-  nil
-  )
+(defn go-left
+  [t]
+  (cond (nil? (:left t)) t
+        :else (go-left (:left t))))
+
+(defn find-succ
+  [t]
+  (let [r (:right t)]
+    (go-left r)
+    (:left r)))
+
+(defn delete-node
+  [t victim]
+  (cond (nil? t) nil
+        (< (compare victim (:key t)) 0) (assoc t :left (delete-node (:left t) victim))
+        (> (compare victim (:key t)) 0) (assoc t :right (delete-node (:right t) victim))
+        :else
+        (cond (and (nil? (:left t))
+                   (nil? (:right t))) nil
+                   (:left t)  (:left t)
+                   (:right t) (:right t)
+                   :two-kids
+                   (let [succ (find-succ t)]
+                     (make-node (:left t) (:key succ) (:value succ)
+                                (delete-node (:right t) (:key succ)))))))
+
+(defn delete "Delete node, decrements size on BST record"
+  [bst victim]
+  (let [t (delete-node (:root bst) victim)]
+      (BST. t (count (preorder t)))))
 
 (defn delete-value [bst victim]
-  nil
+  (cond (empty? (:root bst)) bst)
   )
 
 ;; # Map Tree
@@ -109,5 +136,9 @@
 ;; If your tree is ((x 3 x) 5 ((x 7 x) 6 x)), then (map-tree t inc)
 ;; will return ((x 4 x) 6 ((x 8 x) 7 x))
 
-(defn map-tree
-  [t f] nil)
+(defn map-tree-h
+  [t f] (when-not (nil? t)
+          (BNode. (map-tree-h (:left t) f) (f (:key t)) (f (:value t)) (map-tree-h (:right t) f))
+          ))
+(defn map-tree [bst f]
+  (BST. (map-tree-h (:root bst) f) (size bst)))
