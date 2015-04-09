@@ -23,4 +23,12 @@
 (facts "about map-tree"
        (fact "it applies a function to every key-value pair in the tree"
              (let [tree (BST. (make-node (make-node nil 5 4 nil) 4 6 (make-node nil 9 7 nil)) 3)]
-               (map-tree tree inc) => (BST. (make-node (make-node nil 6 5 nil) 5 7 (make-node nil 10 8 nil)) 3))))             
+               (map-tree tree inc) => (BST. (make-node (make-node nil 6 4 nil) 5 6 (make-node nil 10 7 nil)) 3))))             
+(facts "about delete"
+       (fact "it does nothing with empty trees"
+             (let [tree (BST. nil 0)]
+               (delete tree 5) => tree )))               
+(fact "about delete-value"
+      (fact "it does nothing with empty trees"
+            (let [tree (BST. nil 0)]
+              (delete-value tree 5) => tree))) 

@@ -95,40 +95,38 @@
 ;; Similiarly, we have two versions of delete.  Please use the predecessor node if
 ;; you need to delete a child with two elements.
 
-(defn go-left
-  [t]
-  (cond (nil? (:left t)) t
-        :else (go-left (:left t))))
+(defn get-succ [node]
+  (loop [x (:right node)]
+    (if (nil? (:left x)) x
+        (recur (:left x)))))
 
-(defn find-succ
-  [t]
-  (let [r (:right t)]
-    (go-left r)
-    (:left r)))
+(defn delete-helper [node victim]
+  (cond (nil? node) nil
+        (neg? (compare victim (:key node))) (assoc node :left (delete-helper (:left node) victim))
+        (pos? (compare victim (:key node))) (assoc node :right (delete-helper (:right node) victim))
+        :else (cond (and (nil? (:left node)) (nil? (:right node))) nil
+                    (nil? (:right node)) (:left node)
+                    (nil? (:left node)) (:right node)
+                    :two-else (let [succ (get-succ node)]
+                                (make-node (:left node) (:key succ) (:value succ)
+                                           (delete-helper (:right node) (:key succ)))))))
 
-(defn delete-node
-  [t victim]
-  (cond (nil? t) nil
-        (< (compare victim (:key t)) 0) (assoc t :left (delete-node (:left t) victim))
-        (> (compare victim (:key t)) 0) (assoc t :right (delete-node (:right t) victim))
+(defn delete [bst victim]
+  (cond (empty? (:root bst)) bst
         :else
-        (cond (and (nil? (:left t))
-                   (nil? (:right t))) nil
-                   (:left t)  (:left t)
-                   (:right t) (:right t)
-                   :two-kids
-                   (let [succ (find-succ t)]
-                     (make-node (:left t) (:key succ) (:value succ)
-                                (delete-node (:right t) (:key succ)))))))
-
-(defn delete "Delete node, decrements size on BST record"
-  [bst victim]
-  (let [t (delete-node (:root bst) victim)]
-      (BST. t (count (preorder t)))))
+  (let [t (delete-helper (:root bst) victim)]
+    (BST. t (size t)))))
 
 (defn delete-value [bst victim]
-  (cond (empty? (:root bst)) bst)
-  )
+  (cond (empty? (:rooot bst)) bst
+        :else
+  (let [search (find-key bst victim)]
+    (if (nil? search) nil
+                (delete bst search)))))
+
+
+
+
 
 ;; # Map Tree
 ;;
@@ -138,7 +136,9 @@
 
 (defn map-tree-h
   [t f] (when-not (nil? t)
-          (BNode. (map-tree-h (:left t) f) (f (:key t)) (f (:value t)) (map-tree-h (:right t) f))
+          (BNode. (map-tree-h (:left t) f) (f (:key t)) (:value t) (map-tree-h (:right t) f))
           ))
 (defn map-tree [bst f]
   (BST. (map-tree-h (:root bst) f) (size bst)))
+
+
