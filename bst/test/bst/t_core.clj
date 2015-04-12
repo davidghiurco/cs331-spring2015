@@ -32,7 +32,9 @@
 (facts "about add"
        (fact "it correctly adds a key-value pair when the key is new"
              (let [tree (BST. (make-node nil 5 4 nil) 1)]
-               (size (add tree 1 2)) => 2))
+               (size (add tree 1 2)) => 2)
+             (preorder-t (:root (add LTree :k 40))) => '(:f :d :a :c :e :m :i :k :w :s :x)
+             (size (add LTree :k 40)) => 11)
        (fact "it replaces the value of the corresponding key if nu-key is in the tree"
              (let [tree (BST. (make-node nil 5 4 nil) 1)]
                (size (add tree 5 7)) => 1)))
