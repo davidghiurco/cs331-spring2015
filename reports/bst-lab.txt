@@ -1,12 +1,12 @@
 Lab report for BST Lab - dghiurco
-Timestamp: 2015-04-08 21:42:06
+Timestamp: 2015-04-11 19:47:34
 
 |  :scenario |                                :title |                   :result | :score |
 |------------+---------------------------------------+---------------------------+--------|
 |    working | Test student code vs instructor tests |                      Fail |     20 |
-| qualifying | Test student tests vs instructor code |                      Fail |      3 |
+| qualifying | Test student tests vs instructor code |                      Fail |      4 |
 | qualifying |           Qualifying Scenarios Failed | No further scenarios run. |      0 |
-|      total |                           Total Score |                           |     23 |
+|      total |                           Total Score |                           |     24 |
 
 Details:
 
@@ -130,31 +130,11 @@ FAIL "Delete-value - Delete-Values two-child nodes." at (t_core.clj:251)
 
 FAIL "map-tree - maps stuff onto trees." at (t_core.clj:259)
     Expected: ([d 2] ([b 3] ([a 5] nil nil) ([c 6] nil nil)) ([f 4] ([e 7] nil nil) ([g 8] nil nil)))
-      Actual: java.lang.ClassCastException: clojure.lang.Symbol cannot be cast to java.lang.Number
-              bst.core$map_tree_h.invoke(core.clj:139)
-              bst.core$map_tree_h.invoke(core.clj:139)
-              bst.core$map_tree_h.invoke(core.clj:139)
-              bst.core$map_tree.invoke(core.clj:142)
-              bst.t_core$eval6673$base_function__5041__auto____6674$fn__6675$base_function__5041__auto____6676$fn__6677$fn__6678.invoke(t_core.clj:259)
-              bst.t_core$eval6673$base_function__5041__auto____6674$fn__6675$base_function__5041__auto____6676$fn__6677.invoke(t_core.clj:257)
-              bst.t_core$eval6673$base_function__5041__auto____6674$fn__6675$base_function__5041__auto____6676.invoke(t_core.clj:257)
-              bst.t_core$eval6673$base_function__5041__auto____6674$fn__6675.invoke(t_core.clj:257)
-              bst.t_core$eval6673$base_function__5041__auto____6674.invoke(t_core.clj:257)
-              bst.t_core$eval6673.invoke(t_core.clj:257)
+      Actual: ([d 2] ([f 4] ([g 8] nil nil) ([e 7] nil nil)) ([b 3] ([c 6] nil nil) ([a 5] nil nil)))
 
 FAIL "map-tree - maps stuff onto trees." at (t_core.clj:266)
     Expected: ([d 0] ([b 1] ([a 3] nil nil) ([c 4] nil nil)) ([f 2] ([e 5] nil nil) ([g 6] nil nil)))
-      Actual: java.lang.ClassCastException: clojure.lang.Symbol cannot be cast to java.lang.Number
-              bst.core$map_tree_h.invoke(core.clj:139)
-              bst.core$map_tree_h.invoke(core.clj:139)
-              bst.core$map_tree_h.invoke(core.clj:139)
-              bst.core$map_tree.invoke(core.clj:142)
-              bst.t_core$eval6673$base_function__5041__auto____6674$fn__6675$base_function__5041__auto____6676$fn__6677$fn__6680.invoke(t_core.clj:266)
-              bst.t_core$eval6673$base_function__5041__auto____6674$fn__6675$base_function__5041__auto____6676$fn__6677.invoke(t_core.clj:257)
-              bst.t_core$eval6673$base_function__5041__auto____6674$fn__6675$base_function__5041__auto____6676.invoke(t_core.clj:257)
-              bst.t_core$eval6673$base_function__5041__auto____6674$fn__6675.invoke(t_core.clj:257)
-              bst.t_core$eval6673$base_function__5041__auto____6674.invoke(t_core.clj:257)
-              bst.t_core$eval6673.invoke(t_core.clj:257)
+      Actual: ([d 0] ([f 2] ([g 6] nil nil) ([e 5] nil nil)) ([b 1] ([c 4] nil nil) ([a 3] nil nil)))
 FAILURE: 30 checks failed.  (But 25 succeeded.)
 Subprocess failed
 
@@ -164,12 +144,8 @@ Subprocess failed
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
 
-FAIL "about find - it searches according to key and returns corresponding value if key exists" at (t_core.clj:16)
+FAIL "about find - it searches according to key and returns corresponding value if key exists" at (t_core.clj:18)
     Expected: 4
       Actual: nil
-
-FAIL "about map-tree - it applies a function to every key-value pair in the tree" at (t_core.clj:26)
-    Expected: {:root {:key 5, :left {:key 6, :left , :right , :value 4}, :right {:key 10, :left , :right , :value 7}, :value 6}, :size 3}::bst.core.BST
-      Actual: {:root {:key 4, :left {:key 5, :left , :right , :value 5}, :right {:key 9, :left , :right , :value 8}, :value 7}, :size 3}::bst.core.BST
-FAILURE: 2 checks failed.  (But 7 succeeded.)
+FAILURE: 1 check failed.  (But 9 succeeded.)
 Subprocess failed
