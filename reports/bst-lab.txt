@@ -1,12 +1,12 @@
 Lab report for BST Lab - dghiurco
-Timestamp: 2015-04-11 23:03:04
+Timestamp: 2015-04-11 23:41:44
 
 |  :scenario |                                                    :title |                                   :result | :score |
 |------------+-----------------------------------------------------------+-------------------------------------------+--------|
-|    working |                     Test student code vs instructor tests |                                      Fail |     15 |
+|    working |                     Test student code vs instructor tests |                                      Pass |     45 |
 | qualifying |                     Test student tests vs instructor code |                                      Pass |      5 |
 |    broke-1 |                               Add doesn't increment size. |      Pass: student tests detected errors. |      5 |
-|    broke-2 |                                 Add swaps left and right. | Fail: Student tests did not detect error. |      0 |
+|    broke-2 |                                 Add swaps left and right. |      Pass: student tests detected errors. |      5 |
 |    broke-3 |                                    Find only checks left. |      Pass: student tests detected errors. |      5 |
 |    broke-4 | Two child delete copies predecessor instead of moving it. |      Pass: student tests detected errors. |      5 |
 |    broke-5 |                        Map tree does keys and not values. |      Pass: student tests detected errors. |      5 |
@@ -14,8 +14,8 @@ Timestamp: 2015-04-11 23:03:04
 |    broke-7 |                                Delete truncates subtrees. | Fail: Student tests did not detect error. |      0 |
 |    broke-8 |                         Delete value doesn't always work. |      Pass: student tests detected errors. |      5 |
 |    broke-9 |                    Delete value decrements size too much. |      Pass: student tests detected errors. |      5 |
-|   broke-10 |                   Add sometimes increments size too much. | Fail: Student tests did not detect error. |      0 |
-|      total |                                               Total Score |                                           |     55 |
+|   broke-10 |                   Add sometimes increments size too much. |      Pass: student tests detected errors. |      5 |
+|      total |                                               Total Score |                                           |     95 |
 
 Details:
 
@@ -24,159 +24,14 @@ Details:
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t_core, being replaced by: #'bst.core/find
-
-FAIL "Internal Tests - has a functioning tree-to-list" at (t_core.clj:36)
-    Expected: ([d 1] ([b 2] ([a 4] nil nil) ([c 5] nil nil)) ([f 3] ([e 6] nil nil) ([g 7] nil nil)))
-      Actual: ([d 1] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "Internal Tests - has a functioning tree-to-list" at (t_core.clj:43)
-    Expected: ([g 1] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:64)
-    Expected: 2
-      Actual: nil
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:65)
-    Expected: 3
-      Actual: nil
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:66)
-    Expected: 7
-      Actual: nil
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:67)
-    Expected: 6
-      Actual: nil
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:68)
-    Expected: 5
-      Actual: nil
-
-FAIL "Find - Finds elements that are in the tree." at (t_core.clj:69)
-    Expected: 4
-      Actual: nil
-
-FAIL "Delete - Deletes leaf nodes." at (t_core.clj:93)
-    Expected: ([d 1] ([b 2] nil ([c 5] nil nil)) ([f 3] ([e 6] nil nil) ([g 7] nil nil)))
-      Actual: ([d 1] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "Delete - Deletes leaf nodes." at (t_core.clj:97)
-    Expected: ([d 1] ([b 2] ([a 4] nil nil) nil) ([f 3] ([e 6] nil nil) ([g 7] nil nil)))
-      Actual: ([d 1] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "Delete - Deletes leaf nodes." at (t_core.clj:101)
-    Expected: ([d 1] ([b 2] ([a 4] nil nil) ([c 5] nil nil)) ([f 3] nil ([g 7] nil nil)))
-      Actual: ([d 1] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "Delete - Deletes leaf nodes." at (t_core.clj:105)
-    Expected: ([d 1] ([b 2] ([a 4] nil nil) ([c 5] nil nil)) ([f 3] ([e 6] nil nil) nil))
-      Actual: ([d 1] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "Delete - Deletes one-child nodes." at (t_core.clj:115)
-    Expected: ([g 1] ([d 2] ([a 6] nil ([b 7] nil nil)) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete - Deletes one-child nodes." at (t_core.clj:121)
-    Expected: ([g 1] ([d 2] ([c 5] ([b 7] nil nil) nil) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete - Deletes one-child nodes." at (t_core.clj:127)
-    Expected: ([g 1] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([e 4] nil nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete - Deletes one-child nodes." at (t_core.clj:133)
-    Expected: ([g 1] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([j 10] nil nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete - Deletes one-child nodes." at (t_core.clj:139)
-    Expected: ([g 1] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([o 13] nil nil))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete - Deletes two-child nodes." at (t_core.clj:146)
-    Expected: ([g 1] ([c 5] ([a 6] nil ([b 7] nil nil)) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete - Deletes two-child nodes." at (t_core.clj:153)
-    Expected: ([g 1] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([f 3] ([e 4] nil nil) nil)) ([k 9] ([j 10] nil nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete - Deletes two-child nodes." at (t_core.clj:159)
-    Expected: ([f 3] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([e 4] nil nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([j 10] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete - Deletes two-child nodes." at (t_core.clj:165)
-    Expected: ([c 5] ([b 2] ([a 4] nil nil) nil) ([f 3] ([e 6] nil nil) ([g 7] nil nil)))
-      Actual: ([e 6] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "Delete-value - Delete-Values leaf nodes." at (t_core.clj:176)
-    Expected: ([d 1] ([b 2] nil ([c 5] nil nil)) ([f 3] ([e 6] nil nil) ([g 7] nil nil)))
-      Actual: ([d 1] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "Delete-value - Delete-Values leaf nodes." at (t_core.clj:181)
-    Expected: ([d 1] ([b 2] ([a 4] nil nil) nil) ([f 3] ([e 6] nil nil) ([g 7] nil nil)))
-      Actual: ([d 1] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "Delete-value - Delete-Values leaf nodes." at (t_core.clj:185)
-    Expected: ([d 1] ([b 2] ([a 4] nil nil) ([c 5] nil nil)) ([f 3] nil ([g 7] nil nil)))
-      Actual: ([d 1] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "Delete-value - Delete-Values leaf nodes." at (t_core.clj:189)
-    Expected: ([d 1] ([b 2] ([a 4] nil nil) ([c 5] nil nil)) ([f 3] ([e 6] nil nil) nil))
-      Actual: ([d 1] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "Delete-value - Delete-Values one-child nodes." at (t_core.clj:199)
-    Expected: ([g 1] ([d 2] ([a 6] nil ([b 7] nil nil)) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete-value - Delete-Values one-child nodes." at (t_core.clj:206)
-    Expected: ([g 1] ([d 2] ([c 5] ([b 7] nil nil) nil) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete-value - Delete-Values one-child nodes." at (t_core.clj:212)
-    Expected: ([g 1] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([e 4] nil nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete-value - Delete-Values one-child nodes." at (t_core.clj:218)
-    Expected: ([g 1] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([j 10] nil nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete-value - Delete-Values one-child nodes." at (t_core.clj:224)
-    Expected: ([g 1] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([o 13] nil nil))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete-value - Delete-Values two-child nodes." at (t_core.clj:231)
-    Expected: ([g 1] ([c 5] ([a 6] nil ([b 7] nil nil)) ([f 3] ([e 4] nil nil) nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete-value - Delete-Values two-child nodes." at (t_core.clj:238)
-    Expected: ([g 1] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([f 3] ([e 4] nil nil) nil)) ([k 9] ([j 10] nil nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([g 1] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete-value - Delete-Values two-child nodes." at (t_core.clj:244)
-    Expected: ([f 3] ([d 2] ([c 5] ([a 6] nil ([b 7] nil nil)) nil) ([e 4] nil nil)) ([l 8] ([k 9] ([j 10] nil nil) nil) ([m 11] nil ([n 12] nil ([o 13] nil nil)))))
-      Actual: ([j 10] ([l 8] ([m 11] ([n 12] ([o 13] nil nil) nil) nil) ([k 9] nil ([j 10] nil nil))) ([d 2] ([f 3] nil ([e 4] nil nil)) ([c 5] nil ([a 6] ([b 7] nil nil) nil))))
-
-FAIL "Delete-value - Delete-Values two-child nodes." at (t_core.clj:251)
-    Expected: ([c 5] ([b 2] ([a 4] nil nil) nil) ([f 3] ([e 6] nil nil) ([g 7] nil nil)))
-      Actual: ([e 6] ([f 3] ([g 7] nil nil) ([e 6] nil nil)) ([b 2] ([c 5] nil nil) ([a 4] nil nil)))
-
-FAIL "map-tree - maps stuff onto trees." at (t_core.clj:259)
-    Expected: ([d 2] ([b 3] ([a 5] nil nil) ([c 6] nil nil)) ([f 4] ([e 7] nil nil) ([g 8] nil nil)))
-      Actual: ([d 2] ([f 4] ([g 8] nil nil) ([e 7] nil nil)) ([b 3] ([c 6] nil nil) ([a 5] nil nil)))
-
-FAIL "map-tree - maps stuff onto trees." at (t_core.clj:266)
-    Expected: ([d 0] ([b 1] ([a 3] nil nil) ([c 4] nil nil)) ([f 2] ([e 5] nil nil) ([g 6] nil nil)))
-      Actual: ([d 0] ([f 2] ([g 6] nil nil) ([e 5] nil nil)) ([b 1] ([c 4] nil nil) ([a 3] nil nil)))
-FAILURE: 36 checks failed.  (But 19 succeeded.)
-Subprocess failed
+All checks (55) succeeded.
 
 
 ** Details for Test student tests vs instructor code
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
-All checks (18) succeeded.
+All checks (20) succeeded.
 
 
 ** Details for Add doesn't increment size.
@@ -191,7 +46,11 @@ FAIL "about make-tree - It creates a tree with two parts: root and size." at (t_
 FAIL "about add - it correctly adds a key-value pair when the key is new" at (t_core.clj:35)
     Expected: 2
       Actual: 1
-FAILURE: 2 checks failed.  (But 16 succeeded.)
+
+FAIL "about add - it correctly adds a key-value pair when the key is new" at (t_core.clj:37)
+    Expected: 11
+      Actual: 10
+FAILURE: 3 checks failed.  (But 17 succeeded.)
 Subprocess failed
 
 
@@ -199,7 +58,12 @@ Subprocess failed
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
-All checks (18) succeeded.
+
+FAIL "about add - it correctly adds a key-value pair when the key is new" at (t_core.clj:36)
+    Expected: (:f :d :a :c :e :m :i :k :w :s :x)
+      Actual: (:f :d :a :k :c :e :m :i :w :s :x)
+FAILURE: 1 check failed.  (But 19 succeeded.)
+Subprocess failed
 
 
 ** Details for Find only checks left.
@@ -207,10 +71,10 @@ All checks (18) succeeded.
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
 
-FAIL "about find - it searches according to key and returns corresponding value if key exists" at (t_core.clj:41)
+FAIL "about find - it searches according to key and returns corresponding value if key exists" at (t_core.clj:43)
     Expected: 16
       Actual: nil
-FAILURE: 1 check failed.  (But 17 succeeded.)
+FAILURE: 1 check failed.  (But 19 succeeded.)
 Subprocess failed
 
 
@@ -219,10 +83,10 @@ Subprocess failed
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
 
-FAIL "about delete - it deletes a node by searching for the key" at (t_core.clj:54)
+FAIL "about delete - it deletes a node by searching for the key" at (t_core.clj:56)
     Expected: (:e :d :a :c :m :i :w :s :x)
       Actual: (:e :d :a :c :e :m :i :w :s :x)
-FAILURE: 1 check failed.  (But 17 succeeded.)
+FAILURE: 1 check failed.  (But 19 succeeded.)
 Subprocess failed
 
 
@@ -231,10 +95,10 @@ Subprocess failed
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
 
-FAIL "about map-tree - it applies a function to every key-value pair in the tree" at (t_core.clj:48)
+FAIL "about map-tree - it applies a function to every key-value pair in the tree" at (t_core.clj:50)
     Expected: {:root {:key 4, :left {:key 5, :left , :right , :value 5}, :right {:key 9, :left , :right , :value 8}, :value 7}, :size 3}::bst.core.BST
       Actual: {:root {:key 5, :left {:key 6, :left , :right , :value 4}, :right {:key 10, :left , :right , :value 7}, :value 6}, :size 3}::bst.core.BST
-FAILURE: 1 check failed.  (But 17 succeeded.)
+FAILURE: 1 check failed.  (But 19 succeeded.)
 Subprocess failed
 
 
@@ -243,10 +107,10 @@ Subprocess failed
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
 
-FAIL "about delete - it does nothing with empty trees" at (t_core.clj:52)
+FAIL "about delete - it does nothing with empty trees" at (t_core.clj:54)
     Expected: {:root , :size 0}::bst.core.BST
       Actual: {:root , :size -1}::bst.core.BST
-FAILURE: 1 check failed.  (But 17 succeeded.)
+FAILURE: 1 check failed.  (But 19 succeeded.)
 Subprocess failed
 
 
@@ -254,7 +118,7 @@ Subprocess failed
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
-All checks (18) succeeded.
+All checks (20) succeeded.
 
 
 ** Details for Delete value doesn't always work.
@@ -262,10 +126,10 @@ All checks (18) succeeded.
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
 
-FAIL "about delete-value - it deletes a node by searching for the value" at (t_core.clj:61)
+FAIL "about delete-value - it deletes a node by searching for the value" at (t_core.clj:63)
     Expected: (:f :d :a :c :e :m :w :s :x)
       Actual: (:f :d :a :c :e :m :i :w :s :x)
-FAILURE: 1 check failed.  (But 17 succeeded.)
+FAILURE: 1 check failed.  (But 19 succeeded.)
 Subprocess failed
 
 
@@ -274,14 +138,14 @@ Subprocess failed
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
 
-FAIL "about delete-value - it does nothing with empty trees" at (t_core.clj:59)
+FAIL "about delete-value - it does nothing with empty trees" at (t_core.clj:61)
     Expected: {:root , :size 0}::bst.core.BST
       Actual: {:root , :size -1}::bst.core.BST
 
-FAIL "about delete-value - it deletes a node by searching for the value" at (t_core.clj:61)
+FAIL "about delete-value - it deletes a node by searching for the value" at (t_core.clj:63)
     Expected: (:f :d :a :c :e :m :w :s :x)
       Actual: (:f :d :a :c :e :m :i :w :s :x)
-FAILURE: 2 checks failed.  (But 16 succeeded.)
+FAILURE: 2 checks failed.  (But 18 succeeded.)
 Subprocess failed
 
 
@@ -289,4 +153,9 @@ Subprocess failed
 
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.core, being replaced by: #'bst.core/find
 WARNING: find already refers to: #'clojure.core/find in namespace: bst.t-core, being replaced by: #'bst.core/find
-All checks (18) succeeded.
+
+FAIL "about add - it correctly adds a key-value pair when the key is new" at (t_core.clj:37)
+    Expected: 11
+      Actual: 13
+FAILURE: 1 check failed.  (But 19 succeeded.)
+Subprocess failed
