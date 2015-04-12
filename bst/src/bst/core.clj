@@ -60,31 +60,28 @@
 ;; version of the function must search the entire tree!  If the search item is not
 ;; there, return nil.
 
-(defn find-h
+(defn find-helper
   [node look-key]
   (cond (nil? node) nil
         (zero? (compare look-key (:key node))) (:value node)
-        :else (let [left-value (find-h (:left node) look-key)]
-                (cond (nil? left-value) (find-h (:right node) look-key)
-                      :else left-value))))
+        (neg? (compare look-key (:key node))) (find-helper (:left node) look-key)
+        :else (find-helper (:right node) look-key)))
+
 (defn find "Look for a key and return the corresponding value."
   [bst look-key]
-  (find-h (:root bst) look-key))
+  (find-helper (:root bst) look-key))
 
+(defn find-key-helper
+  [node look-value]
+  (cond (nil? node) nil
+        (zero? (compare look-value (:value node))) (:key node)
+        :else (let [left-part (find-key-helper (:left node) look-value)]
+                (cond (nil? left-part) (find-key-helper (:right node) look-value)
+                      :else left-part))))
 
-
-
-(defn find-key-h
-   [node look-value]
-   (cond (nil?  node) nil
-         (zero? (compare look-value (:value node))) (:key node)
-         :else (let [left-value (find-key-h (:left node) look-value)]
-                     (cond (nil? left-value) (find-key-h (:right node) look-value) 
-                           :else left-value))))
 (defn find-key "Look for a value and return the corresponding key."
   [bst look-value]
-  (find-key-h (:root bst) look-value))
-        
+    (find-key-helper (:root bst) look-value))
 
 
 
