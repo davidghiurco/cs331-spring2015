@@ -2,7 +2,9 @@
   (:use midje.sweet)
   (:use [bst.core])
   (:import [bst.core BST] ))
-
+(facts "about this lab"
+       (fact "the student started it"
+             (+ 1 2) => 3))
 (facts "about add"
        (fact "it correctly adds a key-value pair when the key is new"
              (let [tree (BST. (make-node nil 5 4 nil) 1)]
@@ -23,7 +25,7 @@
 (facts "about map-tree"
        (fact "it applies a function to every key-value pair in the tree"
              (let [tree (BST. (make-node (make-node nil 5 4 nil) 4 6 (make-node nil 9 7 nil)) 3)]
-               (map-tree tree inc) => (BST. (make-node (make-node nil 6 4 nil) 5 6 (make-node nil 10 7 nil)) 3))))             
+               (map-tree tree inc) => (BST. (make-node (make-node nil 5 5 nil) 4 7 (make-node nil 9 8 nil)) 3))))             
 (facts "about delete"
        (fact "it does nothing with empty trees"
              (let [tree (BST. nil 0)]

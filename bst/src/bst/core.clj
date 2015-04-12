@@ -136,7 +136,7 @@
 
 (defn map-tree-h
   [t f] (when-not (nil? t)
-          (BNode. (map-tree-h (:left t) f) (f (:key t)) (:value t) (map-tree-h (:right t) f))
+          (BNode. (map-tree-h (:left t) f) (:key t) (f (:value t)) (map-tree-h (:right t) f))
           ))
 (defn map-tree [bst f]
   (BST. (map-tree-h (:root bst) f) (size bst)))
