@@ -2,6 +2,17 @@
   (:use midje.sweet)
   (:use [bst.core])
   (:import [bst.core BST] ))
+
+
+
+(defn preorder-t [bst] ;; used to check trees
+  (when-not (nil? bst)
+    (cons (:key bst)
+          (concat (preorder-t (:left bst))
+                  (preorder-t (:right bst))))))
+
+(def LTree (BST. (make-node (make-node (make-node nil :a 8 (make-node :c 10)) :d 15 (make-node :e 16)) :f 17 (make-node (make-node :i 32) :m 56 (make-node (make-node :s 60) :w 65 (make-node :x 98)))) 10))
+
 (facts "about this lab"
        (fact "the student started it"
              (+ 1 2) => 3))
@@ -29,8 +40,16 @@
 (facts "about delete"
        (fact "it does nothing with empty trees"
              (let [tree (BST. nil 0)]
-               (delete tree 5) => tree )))               
+               (delete tree 5) => tree ))
+       (fact "it deletes a node by searching for the key"
+             (preorder-t (:root (delete LTree :f))) => '(:e :d :a :c :m :i :w :s :x)
+             (size (delete (delete LTree :w) :f)) => 8))               
 (fact "about delete-value"
       (fact "it does nothing with empty trees"
             (let [tree (BST. nil 0)]
-              (delete-value tree 5) => tree))) 
+              (delete-value tree 5) => tree))
+      (fact "it deletes a node by searching for the value"
+            (preorder-t (:root (delete-value LTree 32))) => '(:f :d :a :c :e :m :w :s :x)
+            (size (delete-value LTree 56)) => 9))
+
+

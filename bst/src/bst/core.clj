@@ -95,10 +95,14 @@
 ;; Similiarly, we have two versions of delete.  Please use the predecessor node if
 ;; you need to delete a child with two elements.
 
-(defn get-succ [node]
-  (loop [x (:right node)]
-    (if (nil? (:left x)) x
-        (recur (:left x)))))
+(defn go-right [t]
+  (cond (nil? (:right t)) t
+        :else (go-right (:right t))))
+
+(defn get-pred [node]
+  (loop [x (:left node)]
+    (if (nil? (:right x)) x
+        (go-right x))))
 
 (defn delete-helper [node victim]
   (cond (nil? node) nil
@@ -107,23 +111,17 @@
         :else (cond (and (nil? (:left node)) (nil? (:right node))) nil
                     (nil? (:right node)) (:left node)
                     (nil? (:left node)) (:right node)
-                    :two-else (let [succ (get-succ node)]
-                                (make-node (:left node) (:key succ) (:value succ)
-                                           (delete-helper (:right node) (:key succ)))))))
+                    :two-else (let [pred (get-pred node)]
+                                (make-node (delete-helper (:left node) (:key pred))
+                                           (:key pred) (:value pred) (:right node))))))
 
 (defn delete [bst victim]
-  (cond (empty? (:root bst)) bst
-        :else
   (let [t (delete-helper (:root bst) victim)]
-    (BST. t (size t)))))
+    (BST. t (count (preorder t)))))
 
 (defn delete-value [bst victim]
-  (cond (empty? (:rooot bst)) bst
-        :else
   (let [search (find-key bst victim)]
-    (if (nil? search) nil
-                (delete bst search)))))
-
+            (delete bst search)))
 
 
 
