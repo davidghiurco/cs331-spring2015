@@ -12,10 +12,10 @@
 ;; We will initialize this using the `make-heap` function.
 
 (defn make-heap
-  "Creates an empty heap.  Specify the size for the data vector.
+    "Creates an empty heap.  Specify the size for the data vector.
 The vector will be populated with `nil`."
-  [size]
-  (Heap. size (apply vector (repeat size nil))))
+    [capacity]
+      (Heap. 0 (apply vector (repeat capacity nil))))
 
 ;; To access the elements of the heap, we will use these functions
 ;; `get`, `left`, `right`, and `parent`.
@@ -64,7 +64,9 @@ this is part of the implementation, not for public consumption."
 (defn top
   "Return the top element of a heap.
 If the heap has no elements, return `nil`."
-  [heap])
+  [heap]
+  (cond (empty? (:data heap)) nil
+        :else (first (:data heap))))
 
 (defn delete
   "Deletes the first element of the heap.
