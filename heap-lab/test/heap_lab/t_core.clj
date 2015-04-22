@@ -1,7 +1,7 @@
 (ns heap-lab.t-core
   (:use midje.sweet)
   (:use [heap-lab.core])
-  (:import [heal-lab.core Heap] ))
+  (:import [heal_lab.core Heap] ))
 
 (def h (Heap. 7 [1 9 2 13 10 5 3]))
 (facts "about numbers"
