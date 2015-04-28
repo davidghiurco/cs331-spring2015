@@ -1,0 +1,27 @@
+Grade Report for David M. Ghiurco
+Produced 2015-04-28 12:37
+Netid: dghiurco cwid: A20325178
+Course: cs331 (2015-01)  Section: 01
+
+                   Assignment  Status Raw Max    Norm Weight  Points 
+----------------------------- ------- --- --- ------- ------ ------- 
+                   First Exam  Graded  80  80 100.00% 0.3750 37.5000 
+             Second Exam (v1)  Graded  88  92  95.65% 0.3750 35.8696 
+                   Final Exam Pending n/a 100     n/a 0.0000  0.0000 
+                  Initial Lab  Graded 100 100 100.00% 0.0375  3.7500 
+              Linked List Lab  Graded 100 100 100.00% 0.0375  3.7500 
+                    Deque Lab  Graded 100 100 100.00% 0.0375  3.7500 
+                      BST Lab  Graded  95 100  95.00% 0.0375  3.5625 
+                     Heap Lab Dropped  29 100  29.00% 0.0000  0.0000 
+        Pre Course Assessment  Graded   1   1 100.00% 0.0111  1.1111 
+Clojure Introduction Activity  Graded   1   1 100.00% 0.0111  1.1111 
+                      Records Missing   0   1   0.00% 0.0111  0.0000 
+                    Recursion  Graded   1   1 100.00% 0.0111  1.1111 
+              Immutable Lists  Graded   1   1 100.00% 0.0111  1.1111 
+                      Vectors  Graded   1   1 100.00% 0.0111  1.1111 
+          Binary Search Trees  Graded   1   1 100.00% 0.0111  1.1111 
+                   Traversals  Graded   1   1 100.00% 0.0111  1.1111 
+                        Heaps Missing   0   1   0.00% 0.0111  0.0000 
+                     Up Trees Pending n/a   1     n/a 0.0000  0.0000 
+----------------------------- ------- --- --- ------- ------ ------- 
+                        Total                  95.96% 1.0000 95.9598 
