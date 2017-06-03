@@ -1,3 +1,4 @@
+;; Score: 100%
 (ns bst.t-core
   (:use midje.sweet)
   (:use [bst.core])
