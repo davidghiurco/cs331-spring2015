@@ -1,5 +1,7 @@
 (ns bst.core)
 
+;; Score: 100%
+
 ;; # Introduction
 ;;
 ;; In this lab you get to write a BST like the one we did in class, only
